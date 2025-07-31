@@ -34,9 +34,12 @@
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
 
+        section {
+            padding: 80px 0;
+        }
     </style>
 </head>
 <body>
@@ -201,16 +204,79 @@
                     </div>
                     <div class="project-content">
                         <h3>M-Pesa-Daraja-API-Django-Framework</h3>
-                        <a href="https://github.com/Akubrecah/M-Pesa-Daraja-API-Django-Framework.git" class="btn btn-primary">M-pesaDaraja API Framework</a>
+                        <p>A Django framework for integrating with the M-Pesa Daraja API.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Akubrecah/M-Pesa-Daraja-API-Django-Framework.git" class="fa fa-github">M-pesaDaraja API Framework</a>
+                        </div>
                         <h3>Flet-Weather-App-GUI</h3>
-                        <a href="https://github.com/Akubrecah/Flet-Weather-App-GUI.git" class="btn btn-primary">Flet-Weather-App-GUI</a>
+                        <p>A GUI application for checking weather updates using the Flet framework.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Akubrecah/Flet-Weather-App-GUI.git" class="fa fa-github">Flet-Weather-App-GUI</a>
+                        </div>
                         <h3>Python-Jarvis</h3>
-                        <a href="https://github.com/Akubrecah/Python-Jarvis.git" class="btn btn-primary">Python-Jarvis</a>
+                        <p>A personal assistant application built with Python.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Akubrecah/Python-Jarvis.git" class="fa fa-github">Python-Jarvis</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Contact Section -->
+   <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>alex.morgan@example.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h3>Location</h3>
+                            <p>San Francisco, California</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Footer -->
     <footer>
         <div class="container">
