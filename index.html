@@ -277,6 +277,30 @@
         .timeline-item:nth-child(even) {
             left: 50%;
         }
+        .timeline::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--dark);
+            border: 4px solid var(--primary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-item:nth-child(odd)::after {
+            right: -12px;
+        }
+        .timeline-item:nth-child(even)::after {
+            left: -12px;
+        }
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: var(--gray);
+            position: relative;
+            border-radius: 10px;
+        }
+        
     </style>
 </head>
 <body>
