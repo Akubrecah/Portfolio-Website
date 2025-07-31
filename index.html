@@ -123,6 +123,110 @@
             list-style: none;
             display: flex;
         }
+        .nav-links li {
+            margin: 0 30px;
+        }
+        .nav-links a {
+            color: var(--light);
+            font-weight: 500;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition)
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Styling for Hero Section */
+        #home {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+        }
+        .hero-content h1 {
+            margin-bottom: 20px;
+            animation: fadeIndown 1s ease;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeinup 1.2s ease 0.2s forwards;
+            opacity: 0;
+        }
+        .hero-buttons {
+            animation: fadeinup 1.2s ease 0.4s forwards;
+            opacity: 0;
+        }
+        .hero-buttons .btn {
+            margin-right: 15px;
+        }
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+        }
+        .hero-image {
+            position: absolute;
+            right: 0;
+            top: 50;
+            transform: translateY(-50%);
+            width: 45;
+            max-width: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            animation: float 6s ease-in-out infinite;
+        }
+        .hero-image img {
+            width: 100%;
+            display: block;
+        }
+        /* Skills Section */
+        #skills {
+            background-color: var(--dark);
+        }
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+            gap: 30px;
+        }
+        ,skill-card {
+            background: var(--gray);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
     </style>
 </head>
 <body>
