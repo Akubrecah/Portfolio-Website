@@ -234,6 +234,49 @@
             gap: 50px;
             align-items: center;
         }
+        .about-text h2 {
+            margin-bottom: 30px;
+        }
+        .about-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+        .about-image img  {
+            width: 100%;
+            display: block;
+        }
+        /* Education Section */
+        #education {
+            background-color: var(--dark);
+        }
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: "";
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        .timeline-item {
+            position: relative;
+            padding: 10px 40px;
+            width: 50%;
+            animation: fadein 1s ease 0.2s forwards;
+        }
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
     </style>
 </head>
 <body>
