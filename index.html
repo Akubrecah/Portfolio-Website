@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Powel Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Powel Mwenesi | Portfolio</title>
     <style>
-        /* CSS Variables */
+        /* ===== CSS VARIABLES FOR CONSISTENT STYLING ===== */
         :root {
-            --primary-color: #6C63FF;
-            --secondary-color: #FF6584;
-            --dark: #121212;
-            --darker: #0a0a0a;
-            --light: #f5f5f5;
-            --gray: #2a2a2a;
-            --transition: all 0.3s ease;    
+            --primary-color: #6C63FF;    /* Main purple accent color */
+            --secondary-color: #FF6584;  /* Secondary pink accent color */
+            --dark: #121212;             /* Dark background color */
+            --darker: #0a0a0a;           /* Even darker background */
+            --light: #f5f5f5;            /* Light text color */
+            --gray: #2a2a2a;             /* Gray elements */
+            --transition: all 0.3s ease; /* Smooth transition effect */
         }
 
-        /* Reset and Base Styles */
+        /* ===== RESET AND BASE STYLES ===== */
         * {
             margin: 0;
             padding: 0;
@@ -25,13 +24,14 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--dark);
             background-color: var(--light);
             overflow-x: hidden;
         }
 
+        /* Container for content centering */
         .container {
             width: 90%;
             max-width: 1200px;
@@ -39,10 +39,12 @@
             padding: 0 20px;
         }
 
+        /* Section padding */
         section {
             padding: 80px 0;
         }
         
+        /* Typography styles */
         h1, h2, h3 {
             font-weight: 700;
             line-height: 1.2;
@@ -61,10 +63,12 @@
             color: var(--light);
         }
 
+        /* Light text for sections with dark background */
         #about h2, #interests h2, #contact h2 {
             color: var(--dark);
         }
 
+        /* Accent underline for section headings */
         h2::after {
             content: '';
             position: absolute;
@@ -81,6 +85,7 @@
             color: var(--light);
         }
         
+        /* Dark text for sections with light background */
         #about p, #interests p, #contact p, #contact h3 {
             color: var(--dark);
         }
@@ -95,6 +100,7 @@
             color: var(--secondary-color);
         }
         
+        /* Button styles */
         .btn {
             display: inline-block;
             padding: 12px 30px;
@@ -127,7 +133,7 @@
             color: #fff;
         }
         
-        /* Header and Navigation - RIGHT ALIGNED */
+        /* ===== HEADER AND NAVIGATION - RIGHT ALIGNED ===== */
         header {
             background-color: rgba(10, 10, 10, 0.9);
             position: fixed;
@@ -144,22 +150,24 @@
             align-items: center;
         }
         
+        /* Logo styling */
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--light);
-            margin-right: auto;
+            margin-right: auto; /* Pushes nav links to the right */
         }
         
         .logo span {
             color: var(--primary-color);
         }
         
+        /* Navigation links container */
         .nav-links {
             list-style: none;
             display: flex;
             padding-left: 0;
-            margin-left: auto;
+            margin-left: auto; /* Aligns links to the right */
         }
         
         .nav-links li {
@@ -172,6 +180,7 @@
             position: relative;
         }
         
+        /* Animated underline effect */
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -187,6 +196,7 @@
             width: 100%;
         }
         
+        /* Mobile menu toggle */
         .menu-toggle {
             display: none;
             font-size: 1.5rem;
@@ -195,7 +205,7 @@
             margin-left: 20px;
         }
 
-        /* Hero Section */
+        /* ===== HERO SECTION ===== */
         #home {
             height: 100vh;
             display: flex;
@@ -235,6 +245,7 @@
             margin-bottom: 10px;
         }
         
+        /* Hero image styling */
         .hero-image {
             position: absolute;
             right: 5%;
@@ -253,7 +264,7 @@
             display: block;
         }
         
-        /* Skills Section */
+        /* ===== SKILLS SECTION ===== */
         #skills {
             background-color: var(--dark);
         }
@@ -287,7 +298,7 @@
             color: var(--light);
         }
 
-        /* About Section */
+        /* ===== ABOUT SECTION ===== */
         #about {
             background-color: var(--light);
         }
@@ -318,7 +329,7 @@
             justify-content: center;
         }
         
-        /* Education Section */
+        /* ===== EDUCATION SECTION ===== */
         #education {
             background-color: var(--dark);
         }
@@ -329,6 +340,7 @@
             margin: 0 auto;
         }
         
+        /* Timeline vertical line */
         .timeline::after {
             content: "";
             position: absolute;
@@ -347,6 +359,7 @@
             box-sizing: border-box;
         }
         
+        /* Alternate timeline items */
         .timeline-item:nth-child(odd) {
             left: 0;
             padding-right: 70px;
@@ -358,6 +371,7 @@
             padding-left: 70px;
         }
         
+        /* Timeline markers */
         .timeline-item::after {
             content: "";
             position: absolute;
@@ -395,7 +409,7 @@
             margin-top: 50px;
         }
         
-        /* Interests Section */
+        /* ===== INTERESTS SECTION ===== */
         #interests {
             background-color: var(--light);
         }
@@ -433,7 +447,7 @@
             color: var(--dark);
         }
         
-        /* Projects Section */
+        /* ===== PROJECTS SECTION ===== */
         #projects {
             background-color: var(--dark);
         }
@@ -498,7 +512,7 @@
             margin-right: 5px;
         }
         
-        /* Contact Section */
+        /* ===== CONTACT SECTION ===== */
         #contact {
             background-color: var(--light);
         }
@@ -553,7 +567,7 @@
             min-height: 150px;
         }
         
-        /* Footer */
+        /* ===== FOOTER ===== */
         footer {
             background-color: var(--darker);
             color: var(--light);
@@ -578,7 +592,7 @@
             color: var(--primary-color);
         }
         
-        /* Animations */
+        /* ===== ANIMATIONS ===== */
         @keyframes fadeInDown {
             from {
                 opacity: 0;
@@ -613,7 +627,7 @@
             }
         }
         
-        /* Responsive Design */
+        /* ===== RESPONSIVE DESIGN ===== */
         @media (max-width: 992px) {
             .about-content {
                 grid-template-columns: 1fr;
@@ -708,11 +722,15 @@
     </style>
 </head>
 <body>
-    <!-- Header Section -->
+    <!-- ===== HEADER SECTION ===== -->
+    <!-- Fixed header with navigation -->
     <header>
         <div class="container">
             <nav>
+                <!-- Logo on the left side -->
                 <div class="logo">Powel <span>Portfolio</span></div>
+                
+                <!-- Navigation links aligned to the right -->
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#skills">Skills</a></li>
@@ -722,6 +740,8 @@
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
+                
+                <!-- Mobile menu toggle button -->
                 <div class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </div>
@@ -729,7 +749,7 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- ===== HERO SECTION ===== -->
     <section id="home">
         <div class="container">
             <div class="hero-content">
@@ -741,7 +761,7 @@
                 </div>
             </div>
         </div>
-        <!-- Hero Section Image -->
+        <!-- Hero image placeholder with gradient background -->
         <div class="hero-image">
             <div style="background: linear-gradient(45deg, #6C63FF, #FF6584); height: 100%; display: flex; align-items: center; justify-content: center;">
                 <i class="fas fa-code" style="font-size: 8rem; color: white;"></i>
@@ -749,33 +769,36 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- ===== SKILLS SECTION ===== -->
     <section id="skills">
         <div class="container">
             <h2>My Skills</h2>
             <div class="skills-container">
-                <!-- HTML Skills -->
+                <!-- HTML Skills Card -->
                 <div class="skill-card">
                     <div class="skill-icon">
                         <i class="fab fa-html5"></i>
                     </div>                    
                     <h3>HTML5</h3>
                 </div>
-                <!-- CSS Skills -->
+                
+                <!-- CSS Skills Card -->
                 <div class="skill-card">
                     <div class="skill-icon">
                         <i class="fab fa-css3-alt"></i>
                     </div>
                     <h3>CSS</h3>
                 </div>
-                <!-- Python Skills -->
+                
+                <!-- Python Skills Card -->
                 <div class="skill-card">
                     <div class="skill-icon">
                         <i class="fab fa-python"></i>
                     </div>
                     <h3>Python</h3>
                 </div>
-                <!-- Git Skills -->
+                
+                <!-- Git Skills Card -->
                 <div class="skill-card">
                     <div class="skill-icon">
                         <i class="fab fa-git"></i>
@@ -786,7 +809,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ===== ABOUT SECTION ===== -->
     <section id="about">
         <div class="container">
             <h2>About Me</h2>
@@ -804,11 +827,12 @@
         </div>
     </section>
     
-    <!-- Education Section -->
+    <!-- ===== EDUCATION SECTION ===== -->
     <section id="education">
         <div class="container">
             <h2>Education Background</h2>
             <div class="timeline">
+                <!-- Full-Stack Development -->
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <h3>Full-Stack Development</h3>
@@ -839,18 +863,19 @@
                 </div>
             </div>
             
-            <!-- Curriculum Vitae (CV) Download Button -->
+            <!-- CV Download Button -->
             <div class="cv-download">
                 <a href="https://docs.google.com/document/d/1YThg_C5dx5aGQ2Gt0w3PHsXSwcridxnp/edit?usp=sharing&ouid=107405950372846838269&rtpof=true&sd=true" class="btn btn-secondary" download>Download CV</a>
             </div>
         </div>
     </section>
     
-    <!-- Interests Section -->
+    <!-- ===== INTERESTS SECTION ===== -->
     <section id="interests">
         <div class="container">
             <h2>My Interests</h2>
             <div class="interests-grid">
+                <!-- Coding Interest Card -->
                 <div class="interest-card">
                     <div class="interest-icon">
                         <i class="fas fa-brain"></i>
@@ -858,6 +883,8 @@
                     <h3>Coding</h3>
                     <p>Passionate about writing clean and efficient code.</p>
                 </div>
+                
+                <!-- Responsive Design Interest Card -->
                 <div class="interest-card">
                     <div class="interest-icon">
                         <i class="fas fa-mobile-alt"></i>
@@ -869,11 +896,12 @@
         </div>
     </section>
     
-    <!-- Projects Section -->
+    <!-- ===== PROJECTS SECTION ===== -->
     <section id="projects">
         <div class="container">
             <h2>Featured Projects</h2>
             <div class="projects-grid">
+                <!-- Project 1: M-Pesa API -->
                 <div class="project-card">
                     <div class="project-image">
                         <i class="fas fa-laptop-code"></i>
@@ -886,6 +914,8 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Project 2: Weather App -->
                 <div class="project-card">
                     <div class="project-image">
                         <i class="fas fa-cloud-sun"></i>
@@ -898,6 +928,8 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Project 3: Jarvis Assistant -->
                 <div class="project-card">
                     <div class="project-image">
                         <i class="fas fa-robot"></i>
@@ -914,11 +946,12 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- ===== CONTACT SECTION ===== -->
     <section id="contact">
         <div class="container">
             <h2>Get In Touch</h2>
             <div class="contact-container">
+                <!-- Contact Information -->
                 <div class="contact-info">
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-envelope"></i></div>
@@ -943,6 +976,8 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Contact Form -->
                 <div class="contact-form">
                     <form id="contactForm">
                         <div class="form-group">
@@ -968,7 +1003,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
             <div class="social-links">
@@ -982,12 +1017,12 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
+        // ===== MOBILE MENU TOGGLE =====
         document.querySelector('.menu-toggle').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
         });
         
-        // Smooth scrolling for navigation links
+        // ===== SMOOTH SCROLLING FOR NAVIGATION LINKS =====
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1005,7 +1040,7 @@
             });
         });
         
-        // Form submission
+        // ===== FORM SUBMISSION HANDLER =====
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your message! I will get back to you soon.');
