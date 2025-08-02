@@ -13,7 +13,7 @@ A modern, responsive portfolio website built with HTML, CSS, and JavaScript. Sho
 
 ## Live Demo
 
-[View Live Portfolio] (https://akubrecah.github.io/Portfolio-Website/)
+(https://akubrecah.github.io/Portfolio-Website/)
 
 ## Technologies Used
 
