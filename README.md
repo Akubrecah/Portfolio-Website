@@ -13,7 +13,7 @@ A modern, responsive portfolio website built with HTML, CSS, and JavaScript. Sho
 
 ## Live Demo
 
-[View Live Portfolio] (https://akubrecah.github.io/Portfolio-Website/)
+(https://akubrecah.github.io/Portfolio-Website/)
 
 ## Technologies Used
 
@@ -84,4 +84,5 @@ Phone: +254 719 299 900 / +254 791 497 858
 
 ---
 
-**Created by Powel Mwenesi**
+**Created with ❤️ by Powel Mwenesi**  
+*Web Developer & Tech Enthusiast*
