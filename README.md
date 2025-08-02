@@ -13,7 +13,7 @@ A modern, responsive portfolio website built with HTML, CSS, and JavaScript. Sho
 
 ## Live Demo
 
-[View Live Portfolio](https://your-portfolio-link.com)
+[View Live Portfolio] (https://akubrecah.github.io/Portfolio-Website/)
 
 ## Technologies Used
 
@@ -50,40 +50,6 @@ Edit the HTML file to update:
 - Education history
 - Projects with descriptions and links
 - Contact information
-
-### Styling Changes
-Modify the CSS variables at the top of the file:
-```css
-:root {
-    --primary: #47a248;       /* Main accent color */
-    --secondary: #ffcd00;     /* Secondary accent color */
-    --bg-dark: #121212;       /* Dark background */
-    --bg-darker-gray: #1e1e1e;/* Section backgrounds */
-    --text-white: #ffffff;    /* Headings color */
-    --text-light-gray: #e0e0e0; /* Body text color */
-}
-```
-
-### Adding Projects
-Insert new project cards in the Projects section:
-```html
-<div class="project-card">
-    <div class="project-image">
-        <div class="project-placeholder">✨</div>
-    </div>
-    <div class="project-content">
-        <h3>M-Pesa-Daraja-API-Django-Framewor</h3>
-        <p>Project description goes here...</p>
-        <div class="project-tags">
-            <span class="tag">Technology</span>
-        </div>
-        <div class="project-links">
-            <a href="#" class="project-link">View Code</a>
-            <a href="#" class="project-link">Live Demo</a>
-        </div>
-    </div>
-</div>
-```
 
 ## Project Structure
 
