@@ -84,5 +84,4 @@ Phone: +254 719 299 900 / +254 791 497 858
 
 ---
 
-**Created with ❤️ by Powel Mwenesi**  
-*Web Developer & Tech Enthusiast*
+**Created by Powel Mwenesi**
