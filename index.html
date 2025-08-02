@@ -6,18 +6,21 @@
     <title>Powel Mwenesi | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ===== CSS VARIABLES FOR CONSISTENT STYLING ===== */
+        /* ===== COLOR SCHEME ===== */
         :root {
-            --primary-color: #6C63FF;    /* Main purple accent color */
-            --secondary-color: #FF6584;  /* Secondary pink accent color */
-            --dark: #121212;             /* Dark background color */
-            --darker: #0a0a0a;           /* Even darker background */
-            --light: #f5f5f5;            /* Light text color */
-            --gray: #2a2a2a;             /* Gray elements */
-            --transition: all 0.3s ease; /* Smooth transition effect */
+            --primary-color: #47a248;          /* Main green accent color */
+            --secondary-color: #ffcd00;        /* Secondary yellow accent color */
+            --dark: #121212;                   /* Main background */
+            --darker: #0a090d;                 /* Darker background */
+            --section-light: #1e1e1e;          /* Light sections background */
+            --light: #e0e0e0;                  /* Light text color */
+            --text-lighter: #ffffff;           /* Brighter text color */
+            --gray: #272729;                   /* Gray elements */
+            --border-color: #2d2d2d;           /* Border color */
+            --border-light: #2d2d2d1a;         /* Light border */
+            --transition: all 0.3s ease;        /* Smooth transition effect */
         }
 
-        /* ===== RESET AND BASE STYLES ===== */
         * {
             margin: 0;
             padding: 0;
@@ -27,12 +30,12 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
+            color: var(--light);
+            background-color: var(--dark);
             overflow-x: hidden;
         }
 
-        /* Container for content centering */
+        /* centering */
         .container {
             width: 90%;
             max-width: 1200px;
@@ -50,6 +53,7 @@
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 20px;
+            color: var(--text-lighter);
         }
         
         h1 {
@@ -61,12 +65,6 @@
             position: relative;
             display: inline-block;
             margin-bottom: 50px;
-            color: var(--light);
-        }
-
-        /* Light text for sections with dark background */
-        #about h2, #interests h2, #contact h2 {
-            color: var(--dark);
         }
 
         /* Accent underline for section headings */
@@ -86,11 +84,6 @@
             color: var(--light);
         }
         
-        /* Dark text for sections with light background */
-        #about p, #interests p, #contact p, #contact h3 {
-            color: var(--dark);
-        }
-        
         a {
             text-decoration: none;
             color: var(--primary-color);
@@ -106,7 +99,7 @@
             display: inline-block;
             padding: 12px 30px;
             background-color: var(--primary-color);
-            color: #fff;
+            color: var(--text-lighter);
             border-radius: 30px;
             text-transform: uppercase;
             font-weight: 600;
@@ -121,6 +114,7 @@
             background-color: var(--secondary-color);
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            color: #000;
         }
         
         .btn-secondary {
@@ -131,18 +125,18 @@
         
         .btn-secondary:hover {
             background-color: var(--primary-color);
-            color: #fff;
+            color: var(--text-lighter);
         }
         
-        /* ===== HEADER AND NAVIGATION - RIGHT ALIGNED ===== */
+        /* ===== HEADER AND NAVIGATION ===== */
         header {
-            background-color: rgba(10, 10, 10, 0.9);
+            background-color: rgba(10, 9, 13, 0.9);
             position: fixed;
             width: 100%;
             z-index: 1000;
             padding: 20px 0;
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid var(--border-color);
         }
         
         nav {
@@ -155,8 +149,8 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--light);
-            margin-right: auto; /* Pushes nav links to the right */
+            color: var(--text-lighter);
+            margin-right: auto;
         }
         
         .logo span {
@@ -168,7 +162,7 @@
             list-style: none;
             display: flex;
             padding-left: 0;
-            margin-left: auto; /* Aligns links to the right */
+            margin-left: auto;
         }
         
         .nav-links li {
@@ -176,7 +170,7 @@
         }
         
         .nav-links a {
-            color: var(--light);
+            color: var(--text-lighter);
             font-weight: 500;
             position: relative;
         }
@@ -202,7 +196,7 @@
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--light);
+            color: var(--text-lighter);
             margin-left: 20px;
         }
 
@@ -220,7 +214,6 @@
             position: relative;
             z-index: 2;
             max-width: 650px;
-            color: var(--light);
         }
         
         .hero-content h1 {
@@ -282,11 +275,13 @@
             padding: 25px;
             text-align: center;
             transition: var(--transition);
+            border: 1px solid var(--border-light);
         }
         
         .skill-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-color);
         }
         
         .skill-icon {
@@ -296,12 +291,12 @@
         }
         
         .skill-card h3 {
-            color: var(--light);
+            color: var(--text-lighter);
         }
 
         /* ===== ABOUT SECTION ===== */
         #about {
-            background-color: var(--light);
+            background-color: var(--section-light);
         }
         
         .about-content {
@@ -399,10 +394,11 @@
             background-color: var(--gray);
             position: relative;
             border-radius: 10px;
+            border: 1px solid var(--border-light);
         }
         
-        .timeline-content h3, .timeline-content p {
-            color: var(--light);
+        .timeline-content h3 {
+            color: var(--text-lighter);
         }
         
         .cv-download {
@@ -412,7 +408,7 @@
         
         /* ===== INTERESTS SECTION ===== */
         #interests {
-            background-color: var(--light);
+            background-color: var(--section-light);
         }
         
         .interest-card {
@@ -421,11 +417,13 @@
             padding: 30px;
             transition: var(--transition);
             text-align: center;
+            border: 1px solid var(--border-light);
         }
         
         .interest-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-color);
         }
         
         .interest-icon {
@@ -441,11 +439,11 @@
         }
         
         .interest-card h3 {
-            color: var(--dark);
+            color: var(--text-lighter);
         }
         
         .interest-card p {
-            color: var(--dark);
+            color: var(--light);
         }
         
         /* ===== PROJECTS SECTION ===== */
@@ -464,11 +462,13 @@
             border-radius: 10px;
             overflow: hidden;
             transition: var(--transition);
+            border: 1px solid var(--border-light);
         }
         
         .project-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-color);
         }
         
         .project-image {
@@ -478,7 +478,7 @@
             align-items: center;
             justify-content: center;
             font-size: 4rem;
-            color: #fff;
+            color: var(--text-lighter);
         }
         
         .project-content {
@@ -486,7 +486,7 @@
         }
         
         .project-content h3 {
-            color: var(--light);
+            color: var(--text-lighter);
         }
         
         .project-content p {
@@ -515,7 +515,7 @@
         
         /* ===== CONTACT SECTION ===== */
         #contact {
-            background-color: var(--light);
+            background-color: var(--section-light);
         }
         
         .contact-container {
@@ -550,17 +550,19 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
-            color: var(--dark);
+            color: var(--text-lighter);
         }
         
         .contact-form input,
         .contact-form textarea {
             width: 100%;
             padding: 12px 15px;
-            border: 1px solid #ddd;
+            background: var(--dark);
+            border: 1px solid var(--border-color);
             border-radius: 5px;
             font-family: 'Arial', sans-serif;
             font-size: 1rem;
+            color: var(--light);
         }
         
         .contact-form textarea {
@@ -724,14 +726,10 @@
 </head>
 <body>
     <!-- ===== HEADER SECTION ===== -->
-    <!-- Fixed header with navigation -->
     <header>
         <div class="container">
             <nav>
-                <!-- Logo on the left side -->
                 <div class="logo">Powel <span>Portfolio</span></div>
-                
-                <!-- Navigation links aligned to the right -->
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#skills">Skills</a></li>
@@ -741,8 +739,6 @@
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                
-                <!-- Mobile menu toggle button -->
                 <div class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </div>
@@ -762,9 +758,8 @@
                 </div>
             </div>
         </div>
-        <!-- Hero image placeholder with gradient background -->
         <div class="hero-image">
-            <div style="background: linear-gradient(45deg, #6C63FF, #FF6584); height: 100%; display: flex; align-items: center; justify-content: center;">
+            <div style="background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); height: 100%; display: flex; align-items: center; justify-content: center;">
                 <i class="fas fa-code" style="font-size: 8rem; color: white;"></i>
             </div>
         </div>
@@ -775,31 +770,24 @@
         <div class="container">
             <h2>My Skills</h2>
             <div class="skills-container">
-                <!-- HTML Skills Card -->
                 <div class="skill-card">
                     <div class="skill-icon">
                         <i class="fab fa-html5"></i>
                     </div>                    
                     <h3>HTML5</h3>
                 </div>
-                
-                <!-- CSS Skills Card -->
                 <div class="skill-card">
                     <div class="skill-icon">
                         <i class="fab fa-css3-alt"></i>
                     </div>
                     <h3>CSS</h3>
                 </div>
-                
-                <!-- Python Skills Card -->
                 <div class="skill-card">
                     <div class="skill-icon">
                         <i class="fab fa-python"></i>
                     </div>
                     <h3>Python</h3>
                 </div>
-                
-                <!-- Git Skills Card -->
                 <div class="skill-card">
                     <div class="skill-icon">
                         <i class="fab fa-git"></i>
@@ -833,7 +821,6 @@
         <div class="container">
             <h2>Education Background</h2>
             <div class="timeline">
-                <!-- Full-Stack Development -->
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <h3>Full-Stack Development</h3>
@@ -842,8 +829,6 @@
                         <p>Specializing in web development technologies including HTML, CSS, and Python.</p>
                     </div>
                 </div>
-
-                <!-- Secondary School Education -->
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <h3>Kenya Certificate of Secondary Education (KCSE)</h3>
@@ -852,8 +837,6 @@
                         <p>Did my 4 years studies here.</p>
                     </div>
                 </div>
-                
-                <!-- Primary School Education -->
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <h3>Kenya Certificate of Primary Education (KCPE)</h3>
@@ -863,8 +846,6 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- CV Download Button -->
             <div class="cv-download">
                 <a href="https://docs.google.com/document/d/1YThg_C5dx5aGQ2Gt0w3PHsXSwcridxnp/edit?usp=sharing&ouid=107405950372846838269&rtpof=true&sd=true" class="btn btn-secondary" download>Download CV</a>
             </div>
@@ -876,7 +857,6 @@
         <div class="container">
             <h2>My Interests</h2>
             <div class="interests-grid">
-                <!-- Coding Interest Card -->
                 <div class="interest-card">
                     <div class="interest-icon">
                         <i class="fas fa-brain"></i>
@@ -884,8 +864,6 @@
                     <h3>Coding</h3>
                     <p>Passionate about writing clean and efficient code.</p>
                 </div>
-                
-                <!-- Responsive Design Interest Card -->
                 <div class="interest-card">
                     <div class="interest-icon">
                         <i class="fas fa-mobile-alt"></i>
@@ -902,7 +880,6 @@
         <div class="container">
             <h2>Featured Projects</h2>
             <div class="projects-grid">
-                <!-- Project 1: M-Pesa API -->
                 <div class="project-card">
                     <div class="project-image">
                         <i class="fas fa-laptop-code"></i>
@@ -915,8 +892,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Project 2: Weather App -->
                 <div class="project-card">
                     <div class="project-image">
                         <i class="fas fa-cloud-sun"></i>
@@ -929,8 +904,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Project 3: Jarvis Assistant -->
                 <div class="project-card">
                     <div class="project-image">
                         <i class="fas fa-robot"></i>
@@ -952,7 +925,6 @@
         <div class="container">
             <h2>Get In Touch</h2>
             <div class="contact-container">
-                <!-- Contact Information -->
                 <div class="contact-info">
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-envelope"></i></div>
@@ -977,8 +949,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Contact Form -->
                 <div class="contact-form">
                     <form id="contactForm">
                         <div class="form-group">
@@ -1018,12 +988,12 @@
     </footer>
 
     <script>
-        // ===== MOBILE MENU TOGGLE =====
+        // Mobile Menu Toggle
         document.querySelector('.menu-toggle').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
         });
         
-        // ===== SMOOTH SCROLLING FOR NAVIGATION LINKS =====
+        // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1035,13 +1005,12 @@
                         behavior: 'smooth'
                     });
                     
-                    // Close mobile menu if open
                     document.querySelector('.nav-links').classList.remove('active');
                 }
             });
         });
         
-        // ===== FORM SUBMISSION HANDLER =====
+        // Form Submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your message! I will get back to you soon.');
