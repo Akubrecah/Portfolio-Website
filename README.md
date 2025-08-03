@@ -1,6 +1,6 @@
 # Powel Portfolio - README
 
-A modern, responsive portfolio website built with HTML, CSS, and JavaScript. Showcase your skills, projects, and professional experience with this elegant single-page design.
+A modern, responsive portfolio website built with HTML, CSS. Showcase your skills, projects, and professional experience with this elegant single-page design.
 
 ## Features
 
@@ -19,7 +19,6 @@ A modern, responsive portfolio website built with HTML, CSS, and JavaScript. Sho
 
 - **HTML5**: Semantic markup for content structure
 - **CSS3**: Flexbox, Grid, Variables, and animations
-- **JavaScript**: Interactive elements and form handling
 - **Font Awesome**: Icon library
 - **Google Fonts**: Typography
 
