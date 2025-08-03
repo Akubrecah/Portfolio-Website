@@ -43,7 +43,6 @@
             padding: 0 20px;
         }
 
-
         section {
             padding: 80px 0;
         }
@@ -143,7 +142,6 @@
             align-items: center;
         }
         
-        
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
@@ -189,6 +187,51 @@
             width: 100%;
         }
 
+        /* ===== PAGE NAVIGATION SYSTEM ===== */
+        /* Hide radio buttons */
+        .page-radio {
+            display: none;
+        }
+        
+        /* Page containers */
+        .page {
+            display: none;
+        }
+        
+        /* Show selected page */
+        #home-radio:checked ~ #home-page,
+        #skills-radio:checked ~ #skills-page,
+        #about-radio:checked ~ #about-page,
+        #education-radio:checked ~ #education-page,
+        #interests-radio:checked ~ #interests-page,
+        #projects-radio:checked ~ #projects-page,
+        #contact-radio:checked ~ #contact-page {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Active navigation link indicator */
+        .nav-links li label {
+            cursor: pointer;
+            color: var(--text-lighter);
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-links li label.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
 
         /* ===== HERO SECTION ===== */
         #home {
@@ -307,15 +350,6 @@
             height: 100%;
         }
         
-        .about-image div {
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Added style for profile image */
         .profile-img {
             width: 100%;
             height: 100%;
@@ -719,270 +753,325 @@
                 margin: 15px 0;
             }
         }
+        
+        /* Mobile menu toggle button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-lighter);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Radio buttons for page navigation -->
+    <input type="radio" name="page" id="home-radio" class="page-radio" checked>
+    <input type="radio" name="page" id="skills-radio" class="page-radio">
+    <input type="radio" name="page" id="about-radio" class="page-radio">
+    <input type="radio" name="page" id="education-radio" class="page-radio">
+    <input type="radio" name="page" id="interests-radio" class="page-radio">
+    <input type="radio" name="page" id="projects-radio" class="page-radio">
+    <input type="radio" name="page" id="contact-radio" class="page-radio">
+
     <!-- ===== HEADER SECTION ===== -->
     <header>
         <div class="container">
             <nav>
                 <div class="logo">Powel <span>Portfolio</span></div>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
                 <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#interests">Interests</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li>
+                        <label for="home-radio" class="active">Home</label>
+                    </li>
+                    <li>
+                        <label for="skills-radio">Skills</label>
+                    </li>
+                    <li>
+                        <label for="about-radio">About</label>
+                    </li>
+                    <li>
+                        <label for="education-radio">Education</label>
+                    </li>
+                    <li>
+                        <label for="interests-radio">Interests</label>
+                    </li>
+                    <li>
+                        <label for="projects-radio">Projects</label>
+                    </li>
+                    <li>
+                        <label for="contact-radio">Contact</label>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- ===== HERO SECTION ===== -->
-    <section id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Hi, I'm <span style="color: var(--primary-color);">Powel Mwenesi</span></h1>
-                <p>A Web Developer studying Full-Stack Development at Power Learn Project (PLP) with the goal of building responsive and performant web applications. I am passionate about transforming ideas into digital solutions that deliver exceptional user experiences.</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn">View Projects</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+    <!-- ===== HOME PAGE ===== -->
+    <div id="home-page" class="page">
+        <section id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Hi, I'm <span style="color: var(--primary-color);">Powel Mwenesi</span></h1>
+                    <p>A Web Developer studying Full-Stack Development at Power Learn Project (PLP) with the goal of building responsive and performant web applications. I am passionate about transforming ideas into digital solutions that deliver exceptional user experiences.</p>
+                    <div class="hero-buttons">
+                        <label for="projects-radio" class="btn">View Projects</label>
+                        <label for="contact-radio" class="btn btn-secondary">Contact Me</label>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="hero-image">
-            <div style="background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); height: 100%; display: flex; align-items: center; justify-content: center;">
-                <i class="fas fa-code" style="font-size: 8rem; color: white;"></i>
+            <div class="hero-image">
+                <div style="background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); height: 100%; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-code" style="font-size: 8rem; color: white;"></i>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <!-- ===== SKILLS SECTION ===== -->
-    <section id="skills">
-        <div class="container">
-            <h2>My Skills</h2>
-            <div class="skills-container">
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-html5"></i>
-                    </div>                    
-                    <h3>HTML5</h3>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-css3-alt"></i>
+    <!-- ===== SKILLS PAGE ===== -->
+    <div id="skills-page" class="page">
+        <section id="skills">
+            <div class="container">
+                <h2>My Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-html5"></i>
+                        </div>                    
+                        <h3>HTML5</h3>
                     </div>
-                    <h3>CSS</h3>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-python"></i>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <h3>CSS</h3>
                     </div>
-                    <h3>Python</h3>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-git"></i>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h3>Python</h3>
                     </div>
-                    <h3>Git</h3>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-git"></i>
+                        </div>
+                        <h3>Git</h3>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <!-- ===== ABOUT SECTION ===== -->
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I'm currently learning Software Development at Power Learn Project (PLP) in developing scalable web applications. My journey begins by building my first portfolio website, and I've been passionate about coding ever since.</p>
-                    <p>What drives me is the opportunity to solve complex problems and create solutions that make a difference in people's lives. I believe in writing clean, maintainable code and staying on the cutting edge of technology.</p>
-                </div>
-                <div class="about-image">
-                    <!-- Added your profile image here -->
-                    <img src="assets/Powel.jpeg" alt="Powel Mwenesi" class="profile-img">
+    <!-- ===== ABOUT PAGE ===== -->
+    <div id="about-page" class="page">
+        <section id="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I'm currently learning Software Development at Power Learn Project (PLP) in developing scalable web applications. My journey begins by building my first portfolio website, and I've been passionate about coding ever since.</p>
+                        <p>What drives me is the opportunity to solve complex problems and create solutions that make a difference in people's lives. I believe in writing clean, maintainable code and staying on the cutting edge of technology.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="assets/Powel.jpeg" alt="Powel Mwenesi" class="profile-img">
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
     
-    <!-- ===== EDUCATION SECTION ===== -->
-    <section id="education">
-        <div class="container">
-            <h2>Education Background</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Full-Stack Development</h3>
-                        <p>Power Learn Project (PLP)</p>
-                        <p>July 2025 - Present</p>
-                        <p>Specializing in web development technologies including HTML, CSS, and Python.</p>
+    <!-- ===== EDUCATION PAGE ===== -->
+    <div id="education-page" class="page">
+        <section id="education">
+            <div class="container">
+                <h2>Education Background</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Full-Stack Development</h3>
+                            <p>Power Learn Project (PLP)</p>
+                            <p>July 2025 - Present</p>
+                            <p>Specializing in web development technologies including HTML, CSS, and Python.</p>
+                        </div>
                     </div>
-                </div>
-               
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Python Essentials 1</h3>
-                        <p>Cisco Networking Academy</p>
-                        <p>July 2023 - September 2023</p>
-                        <p>Fundamental concepts of computer programming and start building coding skills with the Python programming language.</p>
+                   
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Python Essentials 1</h3>
+                            <p>Cisco Networking Academy</p>
+                            <p>July 2023 - September 2023</p>
+                            <p>Fundamental concepts of computer programming and start building coding skills with the Python programming language.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Computer Hardware Basics</h3>
-                        <p>Cisco Networking Academy</p>
-                        <p>January 2023 - May 2023</p>
-                        <p>Basics of computer hardware and discover the components of PCs, laptops and mobile devices.</p>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Computer Hardware Basics</h3>
+                            <p>Cisco Networking Academy</p>
+                            <p>January 2023 - May 2023</p>
+                            <p>Basics of computer hardware and discover the components of PCs, laptops and mobile devices.</p>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Kenya Certificate of Secondary Education</h3>
-                        <p>Segero Adventist High School</p>
-                        <p>2015 - 2018</p>
-                        <p>Completed my 4 years secondary education course.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="cv-download">
-                <a href="assets/Powel CV.docx.pdf" class="btn btn-secondary" download>Download CV</a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- ===== INTERESTS SECTION ===== -->
-    <section id="interests">
-        <div class="container">
-            <h2>My Interests</h2>
-            <div class="interests-grid">
-                <div class="interest-card">
-                    <div class="interest-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Coding</h3>
-                    <p>Passionate about writing clean and efficient code.</p>
-                </div>
-                <div class="interest-card">
-                    <div class="interest-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Responsive Design</h3>
-                    <p>Creating websites that provide optimal viewing across a wide range of devices.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- ===== PROJECTS SECTION ===== -->
-    <section id="projects">
-        <div class="container">
-            <h2>Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>M-Pesa-Daraja-API-Django-Framework</h3>
-                        <p>A Django framework for integrating with the M-Pesa Daraja API.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/Akubrecah/M-Pesa-Daraja-API-Django-Framework.git"><i class="fab fa-github"></i> GitHub</a>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Kenya Certificate of Secondary Education</h3>
+                            <p>Segero Adventist High School</p>
+                            <p>2023 - May 2023</p>
+                            <p>Completed my 4 years secondary education course.</p>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-cloud-sun"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Flet-Weather-App-GUI</h3>
-                        <p>A GUI application for checking weather updates using the Flet framework.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/Akubrecah/Flet-Weather-App-GUI.git"><i class="fab fa-github"></i> GitHub</a>
+                <div class="cv-download">
+                    <a href="assets/Powel CV.docx.pdf" class="btn btn-secondary" download>Download CV</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- ===== INTERESTS PAGE ===== -->
+    <div id="interests-page" class="page">
+        <section id="interests">
+            <div class="container">
+                <h2>My Interests</h2>
+                <div class="interests-grid">
+                    <div class="interest-card">
+                        <div class="interest-icon">
+                            <i class="fas fa-brain"></i>
                         </div>
+                        <h3>Coding</h3>
+                        <p>Passionate about writing clean and efficient code.</p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Responsive Design</h3>
+                        <p>Creating websites that provide optimal viewing across a wide range of devices.</p>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-robot"></i>
+            </div>
+        </section>
+    </div>
+    
+    <!-- ===== PROJECTS PAGE ===== -->
+    <div id="projects-page" class="page">
+        <section id="projects">
+            <div class="container">
+                <h2>Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>M-Pesa-Daraja-API-Django-Framework</h3>
+                            <p>A Django framework for integrating with the M-Pesa Daraja API.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/Akubrecah/M-Pesa-Daraja-API-Django-Framework.git"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-content">
-                        <h3>Python-Jarvis</h3>
-                        <p>A personal assistant application built with Python.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/Akubrecah/Python-Jarvis.git"><i class="fab fa-github"></i> GitHub</a>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-cloud-sun"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Flet-Weather-App-GUI</h3>
+                            <p>A GUI application for checking weather updates using the Flet framework.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/Akubrecah/Flet-Weather-App-GUI.git"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Python-Jarvis</h3>
+                            <p>A personal assistant application built with Python.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/Akubrecah/Python-Jarvis.git"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <!-- ===== CONTACT SECTION ===== -->
-    <section id="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <div>
-                            <h3>Email</h3>
-                            <p>poweldayck@gmail.com</p>
+    <!-- ===== CONTACT PAGE ===== -->
+    <div id="contact-page" class="page">
+        <section id="contact">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h3>Email</h3>
+                                <p>poweldayck@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <h3>Location</h3>
+                                <p>Nairobi, Kenya</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div>
+                                <h3>Phone</h3>
+                                <p>+254 719 299 900</p>
+                                <p>+254 791 497 858</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div>
-                            <h3>Location</h3>
-                            <p>Nairobi, Kenya</p>
-                        </div>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                        <div>
-                            <h3>Phone</h3>
-                            <p>+254 719 299 900</p>
-                            <p>+254 791 497 858</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
             <div class="social-links">
                 <a href="https://github.com/Akubrecah"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/akubrecah"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.linkedin.com/in/powel-mwenesi-123456789/"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <p>&copy; 2025 Powel Mwenesi. All rights reserved.</p>
         </div>
