@@ -769,6 +769,81 @@
                 display: block;
             }
         }
+        
+        /* ===== RESPONSIVE FIXES WITHOUT JS ===== */
+        @media (max-width: 768px) {
+            /* Fix for mobile navigation without JavaScript */
+            .menu-toggle:focus + .nav-links {
+                left: 0;
+            }
+            
+            /* Keep menu open when interacting with it */
+            .nav-links:focus-within {
+                left: 0;
+            }
+            
+            /* Make menu items focusable */
+            .nav-links li label {
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+            }
+            
+            /* Improve touch targets */
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            /* Adjust hero section spacing */
+            #home {
+                padding-top: 20px;
+            }
+            
+            /* Fix timeline marker positioning */
+            .timeline::after {
+                left: 20px;
+            }
+            
+            .timeline-item::after {
+                left: 10px !important;
+            }
+            
+            /* Make buttons more touch-friendly */
+            .btn {
+                padding: 14px 32px;
+                font-size: 1rem;
+            }
+            
+            /* Adjust form elements */
+            .contact-form input,
+            .contact-form textarea {
+                padding: 14px;
+            }
+        }
+        
+        /* Additional small device adjustments */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-buttons .btn {
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+            }
+            
+            .project-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -791,7 +866,7 @@
                 </button>
                 <ul class="nav-links">
                     <li>
-                        <label for="home-radio" class="active">Home</label>
+                        <label for="home-radio" class="">Home</label>
                     </li>
                     <li>
                         <label for="skills-radio">Skills</label>
@@ -822,7 +897,7 @@
             <div class="container">
                 <div class="hero-content">
                     <h1>Hi, I'm <span style="color: var(--primary-color);">Powel Mwenesi</span></h1>
-                    <p>A Web Developer studying Full-Stack Development at Power Learn Project (PLP) with the goal of building responsive and performant web applications. I am passionate about transforming ideas into digital solutions that deliver exceptional user experiences.</p>
+                    <p>A passionate Software Engineer and founder of Akubrecah Entertainment - a modern cybercafe offering a variety of digital services, including internet access, printing, graphic design, and branding Solutions. I specialize in building exceptional digital experiences and innovative Digital solutions. With expertise in web development, I'm dedicated to pushing the boundaries of what's possible in web applications.</p>
                     <div class="hero-buttons">
                         <label for="projects-radio" class="btn">View Projects</label>
                         <label for="contact-radio" class="btn btn-secondary">Contact Me</label>
@@ -879,6 +954,7 @@
                 <h2>About Me</h2>
                 <div class="about-content">
                     <div class="about-text">
+                        <p>As a Software Engineer and founder of Akubrecah Entertainment, I am dedicated to delivering innovative digital solutions. My journey began with a passion for coding, and I have since honed my skills in web development to create exceptional user experiences.</p>
                         <p>I'm currently learning Software Development at Power Learn Project (PLP) in developing scalable web applications. My journey begins by building my first portfolio website, and I've been passionate about coding ever since.</p>
                         <p>What drives me is the opportunity to solve complex problems and create solutions that make a difference in people's lives. I believe in writing clean, maintainable code and staying on the cutting edge of technology.</p>
                     </div>
