@@ -19,6 +19,29 @@
             --border-color: #2d2d2d;           /* Border color */
             --border-light: #2d2d2d1a;         /* Light border */
             --transition: all 0.3s ease;        /* Smooth transition effect */
+            
+            /* Light mode variables */
+            --light-primary: #2e7d32;
+            --light-secondary: #f9a825;
+            --light-bg: #f5f5f5;
+            --light-section: #ffffff;
+            --light-text: #333333;
+            --light-gray: #f0f0f0;
+            --light-border: #e0e0e0;
+        }
+
+        /* Light mode theme */
+        body.light-mode {
+            --primary-color: var(--light-primary);
+            --secondary-color: var(--light-secondary);
+            --dark: var(--light-bg);
+            --darker: #e0e0e0;
+            --section-light: var(--light-section);
+            --light: var(--light-text);
+            --text-lighter: #222222;
+            --gray: var(--light-gray);
+            --border-color: var(--light-border);
+            --border-light: rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -33,6 +56,32 @@
             color: var(--light);
             background-color: var(--dark);
             overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* Theme toggle button */
+        .theme-toggle {
+            background: var(--gray);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-left: 15px;
+        }
+        
+        .theme-toggle:hover {
+            background: var(--primary-color);
+            transform: rotate(15deg);
+        }
+        
+        .theme-toggle i {
+            color: var(--text-lighter);
+            font-size: 1.2rem;
         }
 
         /* centering */
@@ -134,6 +183,11 @@
             padding: 20px 0;
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.5s ease;
+        }
+        
+        body.light-mode header {
+            background-color: rgba(255, 255, 255, 0.9);
         }
         
         nav {
@@ -163,6 +217,8 @@
         
         .nav-links li {
             margin: 0 15px;
+            display: flex;
+            align-items: center;
         }
         
         .nav-links a {
@@ -588,12 +644,20 @@
         .contact-form textarea {
             width: 100%;
             padding: 12px 15px;
-            background: var(--dark);
+            background: var(--gray);
             border: 1px solid var(--border-color);
             border-radius: 5px;
             font-family: 'Arial', sans-serif;
             font-size: 1rem;
             color: var(--light);
+            transition: var(--transition);
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(71, 162, 72, 0.2);
         }
         
         .contact-form textarea {
@@ -768,6 +832,10 @@
             .menu-toggle {
                 display: block;
             }
+            
+            .theme-toggle {
+                margin-left: 10px;
+            }
         }
         
         /* ===== RESPONSIVE FIXES WITHOUT JS ===== */
@@ -843,6 +911,10 @@
                 flex-direction: column;
                 gap: 10px;
             }
+            
+            .nav-links li {
+                margin: 0 8px;
+            }
         }
     </style>
 </head>
@@ -861,9 +933,6 @@
         <div class="container">
             <nav>
                 <div class="logo">Powel <span>Portfolio</span></div>
-                <button class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </button>
                 <ul class="nav-links">
                     <li>
                         <label for="home-radio" class="">Home</label>
@@ -886,7 +955,15 @@
                     <li>
                         <label for="contact-radio">Contact</label>
                     </li>
+                    <li>
+                        <button class="theme-toggle" id="theme-toggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
                 </ul>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
             </nav>
         </div>
     </header>
@@ -923,24 +1000,42 @@
                             <i class="fab fa-html5"></i>
                         </div>                    
                         <h3>HTML5</h3>
+                        <p>Proficient in semantic HTML and modern web standards</p>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon">
                             <i class="fab fa-css3-alt"></i>
                         </div>
                         <h3>CSS</h3>
+                        <p>Advanced CSS including Flexbox, Grid, and animations</p>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon">
                             <i class="fab fa-python"></i>
                         </div>
                         <h3>Python</h3>
+                        <p>Building applications and scripts with Python</p>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon">
                             <i class="fab fa-git"></i>
                         </div>
                         <h3>Git</h3>
+                        <p>Version control and collaborative development</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <h3>JavaScript</h3>
+                        <p>Client-side scripting and interactivity</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Database</h3>
+                        <p>SQL and database design fundamentals</p>
                     </div>
                 </div>
             </div>
@@ -957,9 +1052,12 @@
                         <p>As a Software Engineer and founder of Akubrecah Entertainment, I am dedicated to delivering innovative digital solutions. My journey began with a passion for coding, and I have since honed my skills in web development to create exceptional user experiences.</p>
                         <p>I'm currently learning Software Development at Power Learn Project (PLP) in developing scalable web applications. My journey begins by building my first portfolio website, and I've been passionate about coding ever since.</p>
                         <p>What drives me is the opportunity to solve complex problems and create solutions that make a difference in people's lives. I believe in writing clean, maintainable code and staying on the cutting edge of technology.</p>
+                        <p>Beyond technical skills, I'm passionate about entrepreneurship and building solutions that address real-world challenges. My experience with Akubrecah Entertainment has given me valuable insights into business operations and customer needs.</p>
                     </div>
                     <div class="about-image">
-                        <img src="assets/Powel.jpeg" alt="Powel Mwenesi" class="profile-img">
+                        <div style="background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); height: 100%; display: flex; align-items: center; justify-content: center; color: white;">
+                            <i class="fas fa-user" style="font-size: 8rem;"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -977,7 +1075,7 @@
                             <h3>Full-Stack Development</h3>
                             <p>Power Learn Project (PLP)</p>
                             <p>July 2025 - Present</p>
-                            <p>Specializing in web development technologies including HTML, CSS, and Python.</p>
+                            <p>Specializing in web development technologies including HTML, CSS, JavaScript, Python, and database management.</p>
                         </div>
                     </div>
                    
@@ -1003,7 +1101,7 @@
                             <h3>Kenya Certificate of Secondary Education</h3>
                             <p>Segero Adventist High School</p>
                             <p>2023 - May 2023</p>
-                            <p>Completed my 4 years secondary education course.</p>
+                            <p>Completed my 4 years secondary education course with a focus on computer studies and mathematics.</p>
                         </div>
                     </div>
                 </div>
@@ -1025,14 +1123,28 @@
                             <i class="fas fa-brain"></i>
                         </div>
                         <h3>Coding</h3>
-                        <p>Passionate about writing clean and efficient code.</p>
+                        <p>Passionate about writing clean, efficient code and solving complex problems.</p>
                     </div>
                     <div class="interest-card">
                         <div class="interest-icon">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
                         <h3>Responsive Design</h3>
-                        <p>Creating websites that provide optimal viewing across a wide range of devices.</p>
+                        <p>Creating websites that provide optimal viewing across all devices.</p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI & Automation</h3>
+                        <p>Exploring artificial intelligence and process automation solutions.</p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3>Game Development</h3>
+                        <p>Creating interactive experiences through game programming.</p>
                     </div>
                 </div>
             </div>
@@ -1047,11 +1159,11 @@
                 <div class="projects-grid">
                     <div class="project-card">
                         <div class="project-image">
-                            <i class="fas fa-laptop-code"></i>
+                            <i class="fas fa-money-bill-wave"></i>
                         </div>
                         <div class="project-content">
-                            <h3>M-Pesa-Daraja-API-Django-Framework</h3>
-                            <p>A Django framework for integrating with the M-Pesa Daraja API.</p>
+                            <h3>M-Pesa Daraja API Integration</h3>
+                            <p>A Django framework for integrating with the M-Pesa Daraja API, enabling secure mobile payments.</p>
                             <div class="project-links">
                                 <a href="https://github.com/Akubrecah/M-Pesa-Daraja-API-Django-Framework.git"><i class="fab fa-github"></i> GitHub</a>
                             </div>
@@ -1062,8 +1174,8 @@
                             <i class="fas fa-cloud-sun"></i>
                         </div>
                         <div class="project-content">
-                            <h3>Flet-Weather-App-GUI</h3>
-                            <p>A GUI application for checking weather updates using the Flet framework.</p>
+                            <h3>Flet Weather App</h3>
+                            <p>A GUI application for checking weather updates using the Flet framework with real-time API integration.</p>
                             <div class="project-links">
                                 <a href="https://github.com/Akubrecah/Flet-Weather-App-GUI.git"><i class="fab fa-github"></i> GitHub</a>
                             </div>
@@ -1074,10 +1186,46 @@
                             <i class="fas fa-robot"></i>
                         </div>
                         <div class="project-content">
-                            <h3>Python-Jarvis</h3>
-                            <p>A personal assistant application built with Python.</p>
+                            <h3>Python Jarvis Assistant</h3>
+                            <p>A personal assistant application built with Python that can perform tasks and answer questions.</p>
                             <div class="project-links">
                                 <a href="https://github.com/Akubrecah/Python-Jarvis.git"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Python Text Adventure Game</h3>
+                            <p>A command-line adventure game with multiple story paths and outcomes.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/Akubrecah/Python-Text-Adventure-Game.git"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Python ChatGPT Integration</h3>
+                            <p>Integration of OpenAI's ChatGPT API into Python applications.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/Akubrecah/Python-ChatGPT-Integration.git"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Python Tic-Tac-Toe GUI</h3>
+                            <p>A graphical implementation of the classic Tic-Tac-Toe game with Python.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/Akubrecah/Python-Tic-Tac-Toe-GUI.git"><i class="fab fa-github"></i> GitHub</a>
                             </div>
                         </div>
                     </div>
@@ -1115,6 +1263,13 @@
                                 <p>+254 791 497 858</p>
                             </div>
                         </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fab fa-github"></i></div>
+                            <div>
+                                <h3>GitHub</h3>
+                                <p><a href="https://github.com/Akubrecah">github.com/Akubrecah</a></p>
+                            </div>
+                        </div>
                     </div>
                     <div class="contact-form">
                         <form id="contactForm">
@@ -1148,9 +1303,101 @@
             <div class="social-links">
                 <a href="https://github.com/Akubrecah"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/powel-mwenesi-123456789/"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
             </div>
             <p>&copy; 2025 Powel Mwenesi. All rights reserved.</p>
+            <p>Designed with ❤️ and JavaScript</p>
         </div>
     </footer>
+    
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference or respect OS preference
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Set initial theme
+        if (savedTheme === 'light' || (!savedTheme && !prefersDarkScheme.matches)) {
+            document.body.classList.add('light-mode');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+        
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            
+            if (document.body.classList.contains('light-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+        
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links label').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real application, you would send this data to a server
+            console.log('Form submitted:', { name, email, subject, message });
+            
+            // Show success message
+            alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        // Set active navigation link based on current page
+        const pageRadios = document.querySelectorAll('.page-radio');
+        const navLabels = document.querySelectorAll('.nav-links label');
+        
+        pageRadios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                navLabels.forEach(label => {
+                    label.classList.remove('active');
+                });
+                
+                const activeLabel = document.querySelector(`.nav-links label[for="${radio.id}"]`);
+                if (activeLabel) {
+                    activeLabel.classList.add('active');
+                }
+            });
+        });
+        
+        // Set home as active initially
+        document.querySelector('.nav-links label[for="home-radio"]').classList.add('active');
+    </script>
 </body>
 </html>
