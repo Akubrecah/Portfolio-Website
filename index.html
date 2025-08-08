@@ -96,7 +96,7 @@
             padding: 80px 0;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 20px;
@@ -365,6 +365,9 @@
             text-align: center;
             transition: var(--transition);
             border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+            min-height: 200px;
         }
         
         .skill-card:hover {
@@ -377,10 +380,62 @@
             font-size: 2.5rem;
             color: var(--primary-color);
             margin-bottom: 15px;
+            transition: var(--transition);
         }
         
         .skill-card h3 {
             color: var(--text-lighter);
+            transition: var(--transition);
+        }
+        
+        .skill-details {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--darker);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+            text-align: left;
+        }
+        
+        .skill-card:hover .skill-details {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .skill-card:hover .skill-icon,
+        .skill-card:hover h3 {
+            opacity: 0;
+        }
+        
+        .skill-details h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .skill-details ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+        
+        .skill-details li {
+            position: relative;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .skill-details li::before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: -15px;
         }
 
         /* ===== ABOUT SECTION ===== */
@@ -550,6 +605,8 @@
             overflow: hidden;
             transition: var(--transition);
             border: 1px solid var(--border-light);
+            position: relative;
+            min-height: 400px;
         }
         
         .project-card:hover {
@@ -600,6 +657,67 @@
             margin-right: 5px;
         }
         
+        .project-details {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 9, 13, 0.95);
+            padding: 25px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .project-card:hover .project-details {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .project-details h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .project-details ul {
+            list-style: none;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .project-details li {
+            position: relative;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .project-details li::before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: -15px;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .tech-tag {
+            background: rgba(71, 162, 72, 0.2);
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
         /* ===== CONTACT SECTION ===== */
         #contact {
             background-color: var(--section-light);
@@ -1000,42 +1118,96 @@
                             <i class="fab fa-html5"></i>
                         </div>                    
                         <h3>HTML5</h3>
-                        <p>Proficient in semantic HTML and modern web standards</p>
+                        <div class="skill-details">
+                            <h4>HTML5 Expertise</h4>
+                            <ul>
+                                <li>Semantic HTML structure</li>
+                                <li>Accessibility best practices</li>
+                                <li>Modern form elements</li>
+                                <li>Canvas and SVG integration</li>
+                                <li>SEO-friendly markup</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon">
                             <i class="fab fa-css3-alt"></i>
                         </div>
                         <h3>CSS</h3>
-                        <p>Advanced CSS including Flexbox, Grid, and animations</p>
+                        <div class="skill-details">
+                            <h4>CSS Mastery</h4>
+                            <ul>
+                                <li>Responsive design with Flexbox/Grid</li>
+                                <li>CSS animations and transitions</li>
+                                <li>CSS variables and custom properties</li>
+                                <li>Preprocessors (SASS/SCSS)</li>
+                                <li>BEM methodology</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon">
                             <i class="fab fa-python"></i>
                         </div>
                         <h3>Python</h3>
-                        <p>Building applications and scripts with Python</p>
+                        <div class="skill-details">
+                            <h4>Python Development</h4>
+                            <ul>
+                                <li>Django and Flask frameworks</li>
+                                <li>Data analysis with Pandas</li>
+                                <li>Automation scripts</li>
+                                <li>API development and integration</li>
+                                <li>Web scraping with BeautifulSoup</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon">
                             <i class="fab fa-git"></i>
                         </div>
                         <h3>Git</h3>
-                        <p>Version control and collaborative development</p>
+                        <div class="skill-details">
+                            <h4>Version Control</h4>
+                            <ul>
+                                <li>Branching and merging strategies</li>
+                                <li>GitHub workflow</li>
+                                <li>Code reviews</li>
+                                <li>Conflict resolution</li>
+                                <li>Continuous integration</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon">
                             <i class="fab fa-js"></i>
                         </div>
                         <h3>JavaScript</h3>
-                        <p>Client-side scripting and interactivity</p>
+                        <div class="skill-details">
+                            <h4>JavaScript Development</h4>
+                            <ul>
+                                <li>ES6+ features</li>
+                                <li>DOM manipulation</li>
+                                <li>Async programming</li>
+                                <li>API integration</li>
+                                <li>Basic frontend frameworks</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon">
                             <i class="fas fa-database"></i>
                         </div>
                         <h3>Database</h3>
-                        <p>SQL and database design fundamentals</p>
+                        <div class="skill-details">
+                            <h4>Database Management</h4>
+                            <ul>
+                                <li>SQL fundamentals</li>
+                                <li>Database design</li>
+                                <li>SQLite and PostgreSQL</li>
+                                <li>Basic ORM concepts</li>
+                                <li>Data modeling</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1163,9 +1335,25 @@
                         </div>
                         <div class="project-content">
                             <h3>M-Pesa Daraja API Integration</h3>
-                            <p>A Django framework for integrating with the M-Pesa Daraja API, enabling secure mobile payments.</p>
+                            <p>A Django framework for integrating with the M-Pesa Daraja API</p>
                             <div class="project-links">
                                 <a href="https://github.com/Akubrecah/M-Pesa-Daraja-API-Django-Framework.git"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <h4>Project Details</h4>
+                            <ul>
+                                <li>Secure integration with M-Pesa payment gateway</li>
+                                <li>Handles STK push, B2C, and transaction queries</li>
+                                <li>Customizable callback system for payment notifications</li>
+                                <li>Comprehensive error handling and logging</li>
+                                <li>Production-ready Django app structure</li>
+                            </ul>
+                            <div class="project-tech">
+                                <span class="tech-tag">Django</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">REST API</span>
+                                <span class="tech-tag">M-Pesa</span>
                             </div>
                         </div>
                     </div>
@@ -1175,9 +1363,25 @@
                         </div>
                         <div class="project-content">
                             <h3>Flet Weather App</h3>
-                            <p>A GUI application for checking weather updates using the Flet framework with real-time API integration.</p>
+                            <p>A GUI application for checking weather updates</p>
                             <div class="project-links">
                                 <a href="https://github.com/Akubrecah/Flet-Weather-App-GUI.git"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <h4>Project Details</h4>
+                            <ul>
+                                <li>Real-time weather data from OpenWeather API</li>
+                                <li>Location-based weather forecasting</li>
+                                <li>5-day forecast with temperature charts</li>
+                                <li>Responsive design for all device sizes</li>
+                                <li>Customizable location settings</li>
+                            </ul>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Flet</span>
+                                <span class="tech-tag">API Integration</span>
+                                <span class="tech-tag">GUI</span>
                             </div>
                         </div>
                     </div>
@@ -1187,9 +1391,25 @@
                         </div>
                         <div class="project-content">
                             <h3>Python Jarvis Assistant</h3>
-                            <p>A personal assistant application built with Python that can perform tasks and answer questions.</p>
+                            <p>A personal assistant application built with Python</p>
                             <div class="project-links">
                                 <a href="https://github.com/Akubrecah/Python-Jarvis.git"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <h4>Project Details</h4>
+                            <ul>
+                                <li>Voice-controlled personal assistant</li>
+                                <li>Web search and information retrieval</li>
+                                <li>System automation commands</li>
+                                <li>Email and calendar integration</li>
+                                <li>Customizable command modules</li>
+                            </ul>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Speech Recognition</span>
+                                <span class="tech-tag">Automation</span>
+                                <span class="tech-tag">AI</span>
                             </div>
                         </div>
                     </div>
@@ -1199,9 +1419,25 @@
                         </div>
                         <div class="project-content">
                             <h3>Python Text Adventure Game</h3>
-                            <p>A command-line adventure game with multiple story paths and outcomes.</p>
+                            <p>A command-line adventure game with multiple paths</p>
                             <div class="project-links">
                                 <a href="https://github.com/Akubrecah/Python-Text-Adventure-Game.git"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <h4>Project Details</h4>
+                            <ul>
+                                <li>Interactive fiction game engine</li>
+                                <li>Multiple story branches and endings</li>
+                                <li>Inventory and character progression</li>
+                                <li>Save/load game functionality</li>
+                                <li>ASCII art integration</li>
+                            </ul>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Game Development</span>
+                                <span class="tech-tag">CLI</span>
+                                <span class="tech-tag">OOP</span>
                             </div>
                         </div>
                     </div>
@@ -1211,9 +1447,25 @@
                         </div>
                         <div class="project-content">
                             <h3>Python ChatGPT Integration</h3>
-                            <p>Integration of OpenAI's ChatGPT API into Python applications.</p>
+                            <p>Integration of OpenAI's ChatGPT API into Python applications</p>
                             <div class="project-links">
                                 <a href="https://github.com/Akubrecah/Python-ChatGPT-Integration.git"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <h4>Project Details</h4>
+                            <ul>
+                                <li>Seamless integration with OpenAI API</li>
+                                <li>Customizable conversation templates</li>
+                                <li>Context-aware conversation handling</li>
+                                <li>Response caching for efficiency</li>
+                                <li>Error handling and rate limit management</li>
+                            </ul>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">OpenAI API</span>
+                                <span class="tech-tag">AI</span>
+                                <span class="tech-tag">Natural Language</span>
                             </div>
                         </div>
                     </div>
@@ -1223,9 +1475,25 @@
                         </div>
                         <div class="project-content">
                             <h3>Python Tic-Tac-Toe GUI</h3>
-                            <p>A graphical implementation of the classic Tic-Tac-Toe game with Python.</p>
+                            <p>A graphical implementation of the classic Tic-Tac-Toe game</p>
                             <div class="project-links">
                                 <a href="https://github.com/Akubrecah/Python-Tic-Tac-Toe-GUI.git"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                        <div class="project-details">
+                            <h4>Project Details</h4>
+                            <ul>
+                                <li>Interactive GUI with PyGame</li>
+                                <li>Single and two-player modes</li>
+                                <li>Win detection algorithm</li>
+                                <li>Score tracking system</li>
+                                <li>Responsive game interface</li>
+                            </ul>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">PyGame</span>
+                                <span class="tech-tag">GUI</span>
+                                <span class="tech-tag">Game Logic</span>
                             </div>
                         </div>
                     </div>
