@@ -459,17 +459,15 @@
             overflow: hidden;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
             height: 100%;
-            /* Fix for image container */
             display: flex;
             justify-content: center;
             align-items: center;
         }
         
         .profile-img {
-            /* Fix for image sizing */
             width: 100%;
             height: auto;
-            /*max-height: 500px;*/
+            /* max-height: auto; */
             object-fit: cover;
             border-radius: 20px;
         }
@@ -634,6 +632,8 @@
         
         .project-content {
             padding: 25px;
+            position: relative;
+            z-index: 2; /* Ensure content is above overlay */
         }
         
         .project-content h3 {
@@ -647,6 +647,8 @@
         .project-links {
             margin-top: 20px;
             display: flex;
+            position: relative; /* Ensure links are above overlay */
+            z-index: 3;
         }
         
         .project-links a {
@@ -654,10 +656,16 @@
             display: flex;
             align-items: center;
             color: var(--primary-color);
+            background: rgba(10, 9, 13, 0.7);
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
         }
         
         .project-links a:hover {
             color: var(--secondary-color);
+            background: rgba(10, 9, 13, 0.9);
+            transform: scale(1.05);
         }
         
         .project-links a i {
@@ -678,6 +686,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            z-index: 1; /* Keep below content */
         }
         
         .project-card:hover .project-details {
@@ -942,6 +951,11 @@
             .nav-links li {
                 margin: 15px 0;
             }
+            
+            .project-links {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
         
         /* Mobile menu toggle button */
@@ -1031,11 +1045,6 @@
                 display: block;
                 width: 100%;
                 margin: 10px 0;
-            }
-            
-            .project-links {
-                flex-direction: column;
-                gap: 10px;
             }
             
             .nav-links li {
@@ -1234,7 +1243,6 @@
                     <p>Beyond technical skills, I'm passionate about entrepreneurship and building solutions that address real-world challenges. My experience with Akubrecah Entertainment has given me valuable insights into business operations and customer needs.</p>
                 </div>
                 <div class="about-image">
-                    <!-- Using a placeholder image since the original wasn't loading -->
                     <img src="/assets/Powel.jpeg" alt="A portrait of the founder, showcasing their passion for technology and entrepreneurship." class="profile-img">
                 </div>
             </div>
@@ -1343,7 +1351,7 @@
                             <h3>M-Pesa Daraja API Integration</h3>
                             <p>A Django framework for integrating with the M-Pesa Daraja API</p>
                             <div class="project-links">
-                                <a href="https://github.com/Akubrecah/M-Pesa-Daraja-API-Django-Framework.git"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://github.com/Akubrecah/M-Pesa-Daraja-API-Django-Framework.git" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                             </div>
                         </div>
                         <div class="project-details">
@@ -1371,7 +1379,7 @@
                             <h3>Flet Weather App</h3>
                             <p>A GUI application for checking weather updates</p>
                             <div class="project-links">
-                                <a href="https://github.com/Akubrecah/Flet-Weather-App-GUI.git"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://github.com/Akubrecah/Flet-Weather-App-GUI.git" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                             </div>
                         </div>
                         <div class="project-details">
@@ -1399,7 +1407,7 @@
                             <h3>Python Jarvis Assistant</h3>
                             <p>A personal assistant application built with Python</p>
                             <div class="project-links">
-                                <a href="https://github.com/Akubrecah/Python-Jarvis.git"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://github.com/Akubrecah/Python-Jarvis.git" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                             </div>
                         </div>
                         <div class="project-details">
@@ -1427,7 +1435,7 @@
                             <h3>Python Text Adventure Game</h3>
                             <p>A command-line adventure game with multiple paths</p>
                             <div class="project-links">
-                                <a href="https://github.com/Akubrecah/Python-Text-Adventure-Game.git"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://github.com/Akubrecah/Python-Text-Adventure-Game.git" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                             </div>
                         </div>
                         <div class="project-details">
@@ -1455,7 +1463,7 @@
                             <h3>Python ChatGPT Integration</h3>
                             <p>Integration of OpenAI's ChatGPT API into Python applications</p>
                             <div class="project-links">
-                                <a href="https://github.com/Akubrecah/Python-ChatGPT-Integration.git"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://github.com/Akubrecah/Python-ChatGPT-Integration.git" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                             </div>
                         </div>
                         <div class="project-details">
@@ -1483,7 +1491,7 @@
                             <h3>Python Tic-Tac-Toe GUI</h3>
                             <p>A graphical implementation of the classic Tic-Tac-Toe game</p>
                             <div class="project-links">
-                                <a href="https://github.com/Akubrecah/Python-Tic-Tac-Toe-GUI.git"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://github.com/Akubrecah/Python-Tic-Tac-Toe-GUI.git" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                             </div>
                         </div>
                         <div class="project-details">
@@ -1581,13 +1589,13 @@
                 <a href="https://instagram.com/darypowel"><i class="fab fa-instagram"></i></a>
             </div>
             <p>&copy; 2025 Powel Mwenesi. All rights reserved.</p>
-            <p>Designed with ❤️ and JavaScript</p>
+            
         </div>
     </footer>
     
     <script>
         // Theme toggle functionality
-        const themeToggle = document.getElementById('theme-toggle');
+        <!-- const themeToggle = document.getElementById('theme-toggle'); -->
         const themeIcon = themeToggle.querySelector('i');
         
         // Check for saved theme preference or respect OS preference
