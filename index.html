@@ -467,7 +467,7 @@
         .profile-img {
             width: 100%;
             height: auto;
-            /* max-height: auto; */
+            /* max-height: 500px; */
             object-fit: cover;
             border-radius: 20px;
         }
@@ -926,30 +926,81 @@
                 right: auto !important;
             }
             
+            /* Mobile menu toggle button */
             .menu-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: none;
+                border: none;
+                cursor: pointer;
+                width: 40px;
+                height: 40px;
+                z-index: 1002;
+                position: relative;
+            }
+            
+            .kebab-icon {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 24px;
+                height: 24px;
+            }
+            
+            .kebab-icon span {
                 display: block;
+                width: 5px;
+                height: 5px;
+                background: var(--text-lighter);
+                border-radius: 50%;
+                transition: var(--transition);
+            }
+            
+            .menu-toggle.active .kebab-icon span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+            
+            .menu-toggle.active .kebab-icon span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle.active .kebab-icon span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
             }
             
             .nav-links {
                 position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
                 background-color: var(--darker);
                 flex-direction: column;
-                align-items: center;
-                padding-top: 40px;
+                align-items: flex-start;
+                padding: 100px 30px 30px;
                 transition: var(--transition);
                 margin-left: 0;
+                z-index: 1001;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
             }
             
             .nav-links.active {
-                left: 0;
+                right: 0;
             }
             
             .nav-links li {
                 margin: 15px 0;
+                width: 100%;
+            }
+            
+            .nav-links li label {
+                display: block;
+                width: 100%;
+                padding: 12px 0;
+                font-size: 1.2rem;
+                border-bottom: 1px solid var(--border-color);
             }
             
             .project-links {
@@ -958,21 +1009,26 @@
             }
         }
         
-        /* Mobile menu toggle button */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-lighter);
-            font-size: 1.5rem;
-            cursor: pointer;
+        /* Mobile menu overlay */
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        
+        .mobile-overlay.active {
+            opacity: 1;
+            visibility: visible;
         }
         
         @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-            
             .theme-toggle {
                 margin-left: 10px;
             }
@@ -982,26 +1038,25 @@
         @media (max-width: 768px) {
             /* Fix for mobile navigation without JavaScript */
             .menu-toggle:focus + .nav-links {
-                left: 0;
+                right: 0;
             }
             
             /* Keep menu open when interacting with it */
             .nav-links:focus-within {
-                left: 0;
+                right: 0;
             }
             
             /* Make menu items focusable */
             .nav-links li label {
                 display: block;
                 width: 100%;
-                text-align: center;
-                padding: 10px 0;
+                text-align: left;
+                padding: 12px 0;
             }
             
             /* Improve touch targets */
             .nav-links li {
                 width: 100%;
-                text-align: center;
             }
             
             /* Adjust hero section spacing */
@@ -1096,9 +1151,14 @@
                         </button>
                     </li>
                 </ul>
-                <button class="menu-toggle">
-                    <i class="fas fa-bars"></i>
+                <button class="menu-toggle" id="menu-toggle">
+                    <div class="kebab-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </button>
+                <div class="mobile-overlay" id="mobile-overlay"></div>
             </nav>
         </div>
     </header>
@@ -1589,13 +1649,13 @@
                 <a href="https://instagram.com/darypowel"><i class="fab fa-instagram"></i></a>
             </div>
             <p>&copy; 2025 Powel Mwenesi. All rights reserved.</p>
-            
+            <!-- <p>Designed with ❤️ and JavaScript</p> -->
         </div>
     </footer>
     
     <script>
         // Theme toggle functionality
-        <!-- const themeToggle = document.getElementById('theme-toggle'); -->
+        const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = themeToggle.querySelector('i');
         
         // Check for saved theme preference or respect OS preference
@@ -1625,17 +1685,29 @@
         });
         
         // Mobile menu toggle
-        const menuToggle = document.querySelector('.menu-toggle');
+        const menuToggle = document.getElementById('menu-toggle');
         const navLinks = document.querySelector('.nav-links');
+        const mobileOverlay = document.getElementById('mobile-overlay');
         
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking overlay
+        mobileOverlay.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            menuToggle.classList.remove('active');
         });
         
         // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-links label').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                menuToggle.classList.remove('active');
             });
         });
         
