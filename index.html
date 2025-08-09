@@ -395,7 +395,7 @@
             width: 100%;
             height: 100%;
             background: var(--darker);
-            padding: 15px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -403,7 +403,6 @@
             transform: translateY(20px);
             transition: var(--transition);
             text-align: left;
-            overflow-y: auto; /* Added scroll for overflow */
         }
         
         .skill-card:hover .skill-details {
@@ -419,7 +418,6 @@
         .skill-details h4 {
             color: var(--primary-color);
             margin-bottom: 10px;
-            font-size: 1.1rem;
         }
         
         .skill-details ul {
@@ -430,7 +428,7 @@
         .skill-details li {
             position: relative;
             margin-bottom: 8px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
         
         .skill-details li::before {
@@ -461,12 +459,19 @@
             overflow: hidden;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
             height: 100%;
+            /* Fix for image container */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         .profile-img {
+            /* Fix for image sizing */
             width: 100%;
-            height: 100%;
+            height: auto;
+            /*max-height: 500px;*/
             object-fit: cover;
+            border-radius: 20px;
         }
         
         /* ===== EDUCATION SECTION ===== */
@@ -628,27 +633,20 @@
         }
         
         .project-content {
-            padding: 20px;
-            position: relative;
-            z-index: 2;
+            padding: 25px;
         }
         
         .project-content h3 {
             color: var(--text-lighter);
-            margin-bottom: 10px;
         }
         
         .project-content p {
             color: var(--light);
-            margin-bottom: 15px;
-            font-size: 0.9rem;
         }
         
         .project-links {
-            margin-top: 10px;
+            margin-top: 20px;
             display: flex;
-            position: relative;
-            z-index: 10; /* Ensure links are above overlay */
         }
         
         .project-links a {
@@ -656,16 +654,10 @@
             display: flex;
             align-items: center;
             color: var(--primary-color);
-            background: rgba(255, 255, 255, 0.1);
-            padding: 8px 15px;
-            border-radius: 20px;
-            transition: var(--transition);
         }
         
         .project-links a:hover {
-            color: var(--text-lighter);
-            background: var(--primary-color);
-            transform: translateY(-3px);
+            color: var(--secondary-color);
         }
         
         .project-links a i {
@@ -679,15 +671,13 @@
             width: 100%;
             height: 100%;
             background: rgba(10, 9, 13, 0.95);
-            padding: 20px;
+            padding: 25px;
             opacity: 0;
             transform: translateY(20px);
             transition: var(--transition);
             display: flex;
             flex-direction: column;
             justify-content: center;
-            overflow-y: auto; /* Added scroll for overflow */
-            z-index: 5; /* Ensure it's below the project links */
         }
         
         .project-card:hover .project-details {
@@ -698,19 +688,19 @@
         .project-details h4 {
             color: var(--primary-color);
             margin-bottom: 15px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
         
         .project-details ul {
             list-style: none;
             padding-left: 20px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .project-details li {
             position: relative;
-            margin-bottom: 8px;
-            font-size: 0.85rem;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
         }
         
         .project-details li::before {
@@ -730,9 +720,9 @@
         .tech-tag {
             background: rgba(71, 162, 72, 0.2);
             color: var(--primary-color);
-            padding: 4px 10px;
+            padding: 5px 10px;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
         }
 
         /* ===== CONTACT SECTION ===== */
@@ -871,6 +861,7 @@
                 order: -1;
                 max-width: 500px;
                 margin: 0 auto;
+                height: auto;
             }
             
             .contact-container {
@@ -971,10 +962,6 @@
             .theme-toggle {
                 margin-left: 10px;
             }
-            
-            .project-details {
-                padding: 15px;
-            }
         }
         
         /* ===== RESPONSIVE FIXES WITHOUT JS ===== */
@@ -1053,10 +1040,6 @@
             
             .nav-links li {
                 margin: 0 8px;
-            }
-            
-            .project-details {
-                padding: 10px;
             }
         }
     </style>
@@ -1238,28 +1221,26 @@
             </div>
         </section>
     </div>
-
-    <!-- ===== ABOUT PAGE ===== -->
-    <div id="about-page" class="page">
+<!-- ===== ABOUT PAGE ===== -->
+     <div id="about-page" class="page">
         <section id="about">
             <div class="container">
                 <h2>About Me</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <p>As a Software Engineer and founder of Akubrecah Entertainment, I am dedicated to delivering innovative digital solutions. My journey began with a passion for coding, and I have since honed my skills in web development to create exceptional user experiences.</p>
-                        <p>I'm currently learning Software Development at Power Learn Project (PLP) in developing scalable web applications. My journey begins by building my first portfolio website, and I've been passionate about coding ever since.</p>
-                        <p>What drives me is the opportunity to solve complex problems and create solutions that make a difference in people's lives. I believe in writing clean, maintainable code and staying on the cutting edge of technology.</p>
-                        <p>Beyond technical skills, I'm passionate about entrepreneurship and building solutions that address real-world challenges. My experience with Akubrecah Entertainment has given me valuable insights into business operations and customer needs.</p>
-                    </div>
-                    <div class="about-image">
-                        <div style="background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); height: 100%; display: flex; align-items: center; justify-content: center; color: white;">
-                            <i class="fas fa-user" style="font-size: 8rem;"></i>
-                        </div>
-                    </div>
+                    <p>As a Software Engineer and founder of Akubrecah Entertainment, I am dedicated to delivering innovative digital solutions. My journey began with a passion for coding, and I have since honed my skills in web development to create exceptional user experiences.</p>
+                    <p>I'm currently learning Software Development at Power Learn Project (PLP) in developing scalable web applications. My journey begins by building my first portfolio website, and I've been passionate about coding ever since.</p>
+                    <p>What drives me is the opportunity to solve complex problems and create solutions that make a difference in people's lives. I believe in writing clean, maintainable code and staying on the cutting edge of technology.</p>
+                    <p>Beyond technical skills, I'm passionate about entrepreneurship and building solutions that address real-world challenges. My experience with Akubrecah Entertainment has given me valuable insights into business operations and customer needs.</p>
+                </div>
+                <div class="about-image">
+                    <!-- Using a placeholder image since the original wasn't loading -->
+                    <img src="/assets/Powel.jpeg" alt="A portrait of the founder, showcasing their passion for technology and entrepreneurship." class="profile-img">
                 </div>
             </div>
         </section>
     </div>
+
     
     <!-- ===== EDUCATION PAGE ===== -->
     <div id="education-page" class="page">
@@ -1596,6 +1577,7 @@
             <div class="social-links">
                 <a href="https://github.com/Akubrecah"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/powel-mwenesi-123456789/"><i class="fab fa-linkedin-in"></i></a>
+                <!-- <a href="https://twitter.com"><i class="fab fa-twitter"></i></a> -->
                 <a href="https://instagram.com/darypowel"><i class="fab fa-instagram"></i></a>
             </div>
             <p>&copy; 2025 Powel Mwenesi. All rights reserved.</p>
