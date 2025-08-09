@@ -261,7 +261,8 @@
         #education-radio:checked ~ #education-page,
         #interests-radio:checked ~ #interests-page,
         #projects-radio:checked ~ #projects-page,
-        #contact-radio:checked ~ #contact-page {
+        #contact-radio:checked ~ #contact-page,
+        #podcast-radio:checked ~ #podcast-page {
             display: block;
             animation: fadeIn 0.5s ease;
         }
@@ -734,6 +735,164 @@
             font-size: 0.8rem;
         }
 
+        /* ===== PODCAST SECTION ===== */
+        #podcast {
+            background-color: var(--section-light);
+        }
+        
+        .podcast-intro {
+            margin-bottom: 50px;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .podcast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .podcast-card {
+            background: var(--gray);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .podcast-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-color);
+        }
+        
+        .podcast-image {
+            height: 200px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--text-lighter);
+        }
+        
+        .podcast-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .podcast-content h3 {
+            color: var(--text-lighter);
+            margin-bottom: 10px;
+        }
+        
+        .podcast-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+        }
+        
+        .podcast-content p {
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .podcast-player {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .play-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .play-btn:hover {
+            background: var(--secondary-color);
+            transform: scale(1.1);
+        }
+        
+        .play-btn i {
+            color: var(--text-lighter);
+        }
+        
+        .progress-container {
+            flex-grow: 1;
+            background: rgba(255, 255, 255, 0.1);
+            height: 5px;
+            border-radius: 5px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .progress-bar {
+            position: absolute;
+            height: 100%;
+            width: 60%; /* Example progress */
+            background: var(--primary-color);
+            border-radius: 5px;
+        }
+        
+        .time {
+            font-size: 0.8rem;
+            color: var(--light);
+            min-width: 50px;
+            text-align: right;
+        }
+        
+        .volume {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--light);
+        }
+        
+        .podcast-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .podcast-links a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(71, 162, 72, 0.2);
+            color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .podcast-links a:hover {
+            background: var(--primary-color);
+            color: var(--text-lighter);
+        }
+
         /* ===== CONTACT SECTION ===== */
         #contact {
             background-color: var(--section-light);
@@ -1109,14 +1268,14 @@
     </style>
 </head>
 <body>
-    <!-- Radio buttons for page navigation -->
-    <input type="radio" name="page" id="home-radio" class="page-radio" checked>
+   <input type="radio" name="page" id="home-radio" class="page-radio" checked>
     <input type="radio" name="page" id="skills-radio" class="page-radio">
     <input type="radio" name="page" id="about-radio" class="page-radio">
     <input type="radio" name="page" id="education-radio" class="page-radio">
     <input type="radio" name="page" id="interests-radio" class="page-radio">
     <input type="radio" name="page" id="projects-radio" class="page-radio">
     <input type="radio" name="page" id="contact-radio" class="page-radio">
+    <input type="radio" name="page" id="podcast-radio" class="page-radio">
 
     <!-- ===== HEADER SECTION ===== -->
     <header>
@@ -1144,6 +1303,9 @@
                     </li>
                     <li>
                         <label for="contact-radio">Contact</label>
+                    </li>
+                     <li>
+                        <label for="podcast-radio">Podcast</label>
                     </li>
                     <li>
                         <button class="theme-toggle" id="theme-toggle">
@@ -1290,20 +1452,23 @@
             </div>
         </section>
     </div>
-<!-- ===== ABOUT PAGE ===== -->
-     <div id="about-page" class="page">
+
+    <!-- ===== ABOUT PAGE ===== -->
+    <div id="about-page" class="page">
         <section id="about">
             <div class="container">
                 <h2>About Me</h2>
                 <div class="about-content">
                     <div class="about-text">
-                    <p>As a Software Engineer and founder of Akubrecah Entertainment, I am dedicated to delivering innovative digital solutions. My journey began with a passion for coding, and I have since honed my skills in web development to create exceptional user experiences.</p>
-                    <p>I'm currently learning Software Development at Power Learn Project (PLP) in developing scalable web applications. My journey begins by building my first portfolio website, and I've been passionate about coding ever since.</p>
-                    <p>What drives me is the opportunity to solve complex problems and create solutions that make a difference in people's lives. I believe in writing clean, maintainable code and staying on the cutting edge of technology.</p>
-                    <p>Beyond technical skills, I'm passionate about entrepreneurship and building solutions that address real-world challenges. My experience with Akubrecah Entertainment has given me valuable insights into business operations and customer needs.</p>
-                </div>
-                <div class="about-image">
-                    <img src="/assets/Powel.jpeg" alt="A portrait of the founder." class="profile-img">
+                        <p>As a Software Engineer and founder of Akubrecah Entertainment, I am dedicated to delivering innovative digital solutions. My journey began with a passion for coding, and I have since honed my skills in web development to create exceptional user experiences.</p>
+                        <p>I'm currently learning Software Development at Power Learn Project (PLP) in developing scalable web applications. My journey begins by building my first portfolio website, and I've been passionate about coding ever since.</p>
+                        <p>What drives me is the opportunity to solve complex problems and create solutions that make a difference in people's lives. I believe in writing clean, maintainable code and staying on the cutting edge of technology.</p>
+                        <p>Beyond technical skills, I'm passionate about entrepreneurship and building solutions that address real-world challenges. My experience with Akubrecah Entertainment has given me valuable insights into business operations and customer needs.</p>
+                    </div>
+                    <div class="about-image">
+                        <!-- Fixed image path -->
+                        <img src="assets/Powel.jpeg" alt="Powel Mwenesi" class="profile-img">
+                    </div>
                 </div>
             </div>
         </section>
@@ -1352,7 +1517,8 @@
                     </div>
                 </div>
                 <div class="cv-download">
-                    <a href="assets/Powel CV.docx.pdf" class="btn btn-secondary" download>Download CV</a>
+                    <!-- Fixed CV download link -->
+                    <a href="assets/Powel_CV.pdf" class="btn btn-secondary" download>Download CV</a>
                 </div>
             </div>
         </section>
@@ -1575,7 +1741,165 @@
             </div>
         </section>
     </div>
-
+    
+    <!-- ===== PODCAST PAGE ===== -->
+    <div id="podcast-page" class="page">
+        <section id="podcast">
+            <div class="container">
+                <div class="podcast-intro">
+                    <h2>Tech & Innovation Podcast</h2>
+                    <p>Join me as I explore the latest in technology, software development, and digital innovation. Each episode features insightful conversations with industry experts, practical coding tips, and discussions about the future of tech in Africa and beyond.</p>
+                </div>
+                
+                <div class="podcast-grid">
+                    <div class="podcast-card">
+                        <div class="podcast-image">
+                            <i class="fas fa-microphone-alt"></i>
+                        </div>
+                        <div class="podcast-content">
+                            <h3>The Future of AI in Africa</h3>
+                            <div class="podcast-meta">
+                                <span>Episode 12</span>
+                                <span>May 15, 2025</span>
+                                <span>45 min</span>
+                            </div>
+                            <p>Exploring how artificial intelligence is transforming industries across Africa and the opportunities it presents for local developers and entrepreneurs.</p>
+                            
+                            <div class="podcast-player">
+                                <div class="player-controls">
+                                    <div class="play-btn">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-bar"></div>
+                                    </div>
+                                    <div class="time">22:15</div>
+                                </div>
+                                <div class="volume">
+                                    <i class="fas fa-volume-up"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="podcast-links">
+                                <a href="#"><i class="fab fa-spotify"></i> Spotify</a>
+                                <a href="#"><i class="fab fa-apple"></i> Apple Podcasts</a>
+                                <a href="#"><i class="fas fa-rss"></i> RSS Feed</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- <div class="podcast-card">
+                        <div class="podcast-image">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="podcast-content">
+                            <h3>Building Scalable Web Apps</h3>
+                            <div class="podcast-meta">
+                                <span>Episode 11</span>
+                                <span>April 28, 2025</span>
+                                <span>38 min</span>
+                            </div>
+                            <p>Strategies and best practices for creating web applications that can handle growth without compromising performance or user experience.</p>
+                            
+                            <div class="podcast-player">
+                                <div class="player-controls">
+                                    <div class="play-btn">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-bar"></div>
+                                    </div>
+                                    <div class="time">18:42</div>
+                                </div>
+                                <div class="volume">
+                                    <i class="fas fa-volume-up"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="podcast-links">
+                                <a href="#"><i class="fab fa-spotify"></i> Spotify</a>
+                                <a href="#"><i class="fab fa-apple"></i> Apple Podcasts</a>
+                                <a href="#"><i class="fas fa-rss"></i> RSS Feed</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="podcast-card">
+                        <div class="podcast-image">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="podcast-content">
+                            <h3>Startup Success Stories</h3>
+                            <div class="podcast-meta">
+                                <span>Episode 10</span>
+                                <span>April 10, 2025</span>
+                                <span>52 min</span>
+                            </div>
+                            <p>Interview with founders of successful tech startups in Kenya, discussing their journeys, challenges, and lessons learned along the way.</p>
+                            
+                            <div class="podcast-player">
+                                <div class="player-controls">
+                                    <div class="play-btn">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-bar"></div>
+                                    </div>
+                                    <div class="time">31:05</div>
+                                </div>
+                                <div class="volume">
+                                    <i class="fas fa-volume-up"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="podcast-links">
+                                <a href="#"><i class="fab fa-spotify"></i> Spotify</a>
+                                <a href="#"><i class="fab fa-apple"></i> Apple Podcasts</a>
+                                <a href="#"><i class="fas fa-rss"></i> RSS Feed</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="podcast-card">
+                        <div class="podcast-image">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="podcast-content">
+                            <h3>Mobile Development Trends</h3>
+                            <div class="podcast-meta">
+                                <span>Episode 9</span>
+                                <span>March 22, 2025</span>
+                                <span>41 min</span>
+                            </div>
+                            <p>Exploring the latest trends in mobile app development, including cross-platform solutions, performance optimization, and user experience design.</p>
+                            
+                            <div class="podcast-player">
+                                <div class="player-controls">
+                                    <div class="play-btn">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-bar"></div>
+                                    </div>
+                                    <div class="time">25:30</div>
+                                </div>
+                                <div class="volume">
+                                    <i class="fas fa-volume-up"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="podcast-links">
+                                <a href="#"><i class="fab fa-spotify"></i> Spotify</a>
+                                <a href="#"><i class="fab fa-apple"></i> Apple Podcasts</a>
+                                <a href="#"><i class="fas fa-rss"></i> RSS Feed</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+     -->
     <!-- ===== CONTACT PAGE ===== -->
     <div id="contact-page" class="page">
         <section id="contact">
@@ -1752,6 +2076,22 @@
         
         // Set home as active initially
         document.querySelector('.nav-links label[for="home-radio"]').classList.add('active');
+        
+        // Podcast player functionality
+        const playButtons = document.querySelectorAll('.play-btn');
+        
+        playButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const icon = this.querySelector('i');
+                if (icon.classList.contains('fa-play')) {
+                    icon.classList.remove('fa-play');
+                    icon.classList.add('fa-pause');
+                } else {
+                    icon.classList.remove('fa-pause');
+                    icon.classList.add('fa-play');
+                }
+            });
+        });
     </script>
 </body>
 </html>
