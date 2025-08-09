@@ -468,7 +468,6 @@
         .profile-img {
             width: 100%;
             height: auto;
-            /* max-height: 500px; */
             object-fit: cover;
             border-radius: 20px;
         }
@@ -818,58 +817,6 @@
             gap: 15px;
         }
         
-        .play-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .play-btn:hover {
-            background: var(--secondary-color);
-            transform: scale(1.1);
-        }
-        
-        .play-btn i {
-            color: var(--text-lighter);
-        }
-        
-        .progress-container {
-            flex-grow: 1;
-            background: rgba(255, 255, 255, 0.1);
-            height: 5px;
-            border-radius: 5px;
-            position: relative;
-            cursor: pointer;
-        }
-        
-        .progress-bar {
-            position: absolute;
-            height: 100%;
-            width: 60%; /* Example progress */
-            background: var(--primary-color);
-            border-radius: 5px;
-        }
-        
-        .time {
-            font-size: 0.8rem;
-            color: var(--light);
-            min-width: 50px;
-            text-align: right;
-        }
-        
-        .volume {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            color: var(--light);
-        }
-        
         .podcast-links {
             display: flex;
             gap: 10px;
@@ -891,6 +838,127 @@
         .podcast-links a:hover {
             background: var(--primary-color);
             color: var(--text-lighter);
+        }
+        
+        /* Upload container */
+        .upload-container {
+            background: var(--darker);
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 40px;
+            border: 2px dashed var(--primary-color);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-container:hover {
+            background: rgba(71, 162, 72, 0.1);
+        }
+        
+        .upload-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .upload-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: var(--primary-color);
+            color: var(--text-lighter);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 15px;
+        }
+        
+        .upload-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        #file-input {
+            display: none;
+        }
+        
+        .upload-details {
+            margin-top: 20px;
+            text-align: left;
+            background: var(--gray);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .upload-details h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .upload-instructions {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .upload-instructions li {
+            margin-bottom: 8px;
+        }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .tab {
+            padding: 12px 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab.active {
+            border-bottom: 3px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Google Drive input */
+        .gdrive-input {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .gdrive-input input {
+            flex: 1;
+            padding: 12px 15px;
+            background: var(--gray);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            color: var(--light);
+        }
+        
+        .gdrive-input button {
+            padding: 12px 20px;
+            background: var(--primary-color);
+            color: var(--text-lighter);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .gdrive-input button:hover {
+            background: var(--secondary-color);
         }
 
         /* ===== CONTACT SECTION ===== */
@@ -1166,6 +1234,19 @@
                 flex-direction: column;
                 gap: 10px;
             }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                text-align: center;
+                border-bottom: 1px solid var(--border-color);
+            }
+            
+            .gdrive-input {
+                flex-direction: column;
+            }
         }
         
         /* Mobile menu overlay */
@@ -1325,7 +1406,7 @@
         </div>
     </header>
 
-    <!-- ===== HOME PAGE ===== -->
+     <!-- ===== HOME PAGE ===== -->
     <div id="home-page" class="page">
         <section id="home">
             <div class="container">
@@ -1751,156 +1832,110 @@
                     <p>Join me as I explore the latest in technology, software development, and digital innovation. Each episode features insightful conversations with industry experts, practical coding tips, and discussions about the future of tech in Africa and beyond.</p>
                 </div>
                 
-                <div class="podcast-grid">
-                    <div class="podcast-card">
-                        <div class="podcast-image">
-                            <i class="fas fa-microphone-alt"></i>
-                        </div>
-                        <div class="podcast-content">
-                            <h3>The Future of AI in Africa</h3>
-                            <div class="podcast-meta">
-                                <span>Episode 12</span>
-                                <span>May 15, 2025</span>
-                                <span>45 min</span>
+                <div class="tabs">
+                    <div class="tab active" data-tab="featured">Featured Podcasts</div>
+                    <!-- <div class="tab" data-tab="assets">From Assets</div>
+                    <div class="tab" data-tab="gdrive">From Google Drive</div> -->
+                </div>
+                
+                <div class="tab-content active" id="featured-content">
+                    <div class="podcast-grid">
+                        <div class="podcast-card">
+                            <div class="podcast-image">
+                                <i class="fas fa-microphone-alt"></i>
                             </div>
-                            <p>Exploring how artificial intelligence is transforming industries across Africa and the opportunities it presents for local developers and entrepreneurs.</p>
-                            
-                            <div class="podcast-player">
-                                <div class="player-controls">
-                                    <div class="play-btn">
-                                        <i class="fas fa-play"></i>
-                                    </div>
-                                    <div class="progress-container">
-                                        <div class="progress-bar"></div>
-                                    </div>
-                                    <div class="time">22:15</div>
+                            <div class="podcast-content">
+                                <h3>B13-podcasT</h3>
+                                <div class="podcast-meta">
+                                    <span>Episode 1</span>
+                                    <span>May 15, 2025</span>
+                                    <span>23 min</span>
                                 </div>
-                                <div class="volume">
-                                    <i class="fas fa-volume-up"></i>
+                                <p>Talking, Teasing & Dissing of Babu wa Babu... </p>
+
+                                <!-- Fixed audio player structure -->
+                                <div class="podcast-player">
+                                    <audio controls>
+                                        <source src="src/B13-Episode-1 (copy 1).mp3" type="audio/mpeg">
+                                        Your browser does not support the audio element.
+                                    </audio>
                                 </div>
-                            </div>
-                            
-                            <div class="podcast-links">
-                                <a href="#"><i class="fab fa-spotify"></i> Spotify</a>
-                                <a href="#"><i class="fab fa-apple"></i> Apple Podcasts</a>
-                                <a href="#"><i class="fas fa-rss"></i> RSS Feed</a>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- <div class="podcast-card">
-                        <div class="podcast-image">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <div class="podcast-content">
-                            <h3>Building Scalable Web Apps</h3>
-                            <div class="podcast-meta">
-                                <span>Episode 11</span>
-                                <span>April 28, 2025</span>
-                                <span>38 min</span>
-                            </div>
-                            <p>Strategies and best practices for creating web applications that can handle growth without compromising performance or user experience.</p>
-                            
-                            <div class="podcast-player">
-                                <div class="player-controls">
-                                    <div class="play-btn">
-                                        <i class="fas fa-play"></i>
-                                    </div>
-                                    <div class="progress-container">
-                                        <div class="progress-bar"></div>
-                                    </div>
-                                    <div class="time">18:42</div>
-                                </div>
-                                <div class="volume">
-                                    <i class="fas fa-volume-up"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="podcast-links">
-                                <a href="#"><i class="fab fa-spotify"></i> Spotify</a>
-                                <a href="#"><i class="fab fa-apple"></i> Apple Podcasts</a>
-                                <a href="#"><i class="fas fa-rss"></i> RSS Feed</a>
-                            </div>
-                        </div>
+                </div>
+                
+                <div class="tab-content" id="assets-content">
+                    <div class="podcast-grid">
+                        <!-- Podcasts from assets will be added here -->
                     </div>
                     
-                    <div class="podcast-card">
-                        <div class="podcast-image">
-                            <i class="fas fa-lightbulb"></i>
+                    <div class="upload-container">
+                        <div class="upload-icon">
+                            <i class="fas fa-folder-open"></i>
                         </div>
-                        <div class="podcast-content">
-                            <h3>Startup Success Stories</h3>
-                            <div class="podcast-meta">
-                                <span>Episode 10</span>
-                                <span>April 10, 2025</span>
-                                <span>52 min</span>
-                            </div>
-                            <p>Interview with founders of successful tech startups in Kenya, discussing their journeys, challenges, and lessons learned along the way.</p>
-                            
-                            <div class="podcast-player">
-                                <div class="player-controls">
-                                    <div class="play-btn">
-                                        <i class="fas fa-play"></i>
-                                    </div>
-                                    <div class="progress-container">
-                                        <div class="progress-bar"></div>
-                                    </div>
-                                    <div class="time">31:05</div>
-                                </div>
-                                <div class="volume">
-                                    <i class="fas fa-volume-up"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="podcast-links">
-                                <a href="#"><i class="fab fa-spotify"></i> Spotify</a>
-                                <a href="#"><i class="fab fa-apple"></i> Apple Podcasts</a>
-                                <a href="#"><i class="fas fa-rss"></i> RSS Feed</a>
-                            </div>
+                        <h3>Add Podcasts from Assets</h3>
+                        <p>List your podcasts stored in the assets folder by providing their paths</p>
+                        
+                        <div class="gdrive-input">
+                            <input type="text" id="assets-path" placeholder="Enter path to audio file (e.g., assets/podcasts/episode1.mp3)">
+                            <button id="add-assets-podcast">
+                                <i class="fas fa-plus"></i> Add Podcast
+                            </button>
+                        </div>
+                        
+                        <div id="assets-info" style="margin-top: 15px; font-size: 0.9rem;"></div>
+                        
+                        <div class="upload-details">
+                            <h4>How to Add Podcasts from Assets</h4>
+                            <ul class="upload-instructions">
+                                <li><i class="fas fa-check-circle"></i> Place your audio files in your website's assets folder</li>
+                                <li><i class="fas fa-check-circle"></i> Enter the relative path to the file (e.g., assets/podcasts/episode1.mp3)</li>
+                                <li><i class="fas fa-check-circle"></i> Click "Add Podcast" to add it to your podcast list</li>
+                                <li><i class="fas fa-check-circle"></i> The podcast will appear in this section and be playable</li>
+                            </ul>
                         </div>
                     </div>
+                </div>
+                
+                <div class="tab-content" id="gdrive-content">
+                    <div class="podcast-grid">
+                        <!-- Podcasts from Google Drive will be added here -->
+                    </div>
                     
-                    <div class="podcast-card">
-                        <div class="podcast-image">
-                            <i class="fas fa-mobile-alt"></i>
+                    <div class="upload-container">
+                        <div class="upload-icon">
+                            <i class="fab fa-google-drive"></i>
                         </div>
-                        <div class="podcast-content">
-                            <h3>Mobile Development Trends</h3>
-                            <div class="podcast-meta">
-                                <span>Episode 9</span>
-                                <span>March 22, 2025</span>
-                                <span>41 min</span>
-                            </div>
-                            <p>Exploring the latest trends in mobile app development, including cross-platform solutions, performance optimization, and user experience design.</p>
-                            
-                            <div class="podcast-player">
-                                <div class="player-controls">
-                                    <div class="play-btn">
-                                        <i class="fas fa-play"></i>
-                                    </div>
-                                    <div class="progress-container">
-                                        <div class="progress-bar"></div>
-                                    </div>
-                                    <div class="time">25:30</div>
-                                </div>
-                                <div class="volume">
-                                    <i class="fas fa-volume-up"></i>
-                                </div>
-                            </div>
-                            
-                            <div class="podcast-links">
-                                <a href="#"><i class="fab fa-spotify"></i> Spotify</a>
-                                <a href="#"><i class="fab fa-apple"></i> Apple Podcasts</a>
-                                <a href="#"><i class="fas fa-rss"></i> RSS Feed</a>
-                            </div>
+                        <h3>Add Podcasts from Google Drive</h3>
+                        <p>Enter the shareable link to your podcast on Google Drive</p>
+                        
+                        <div class="gdrive-input">
+                            <input type="text" id="gdrive-link" placeholder="Paste Google Drive shareable link">
+                            <button id="add-gdrive-podcast">
+                                <i class="fas fa-plus"></i> Add Podcast
+                            </button>
+                        </div>
+                        
+                        <div id="gdrive-info" style="margin-top: 15px; font-size: 0.9rem;"></div>
+                        
+                        <div class="upload-details">
+                            <h4>How to Add Podcasts from Google Drive</h4>
+                            <ul class="upload-instructions">
+                                <li><i class="fas fa-check-circle"></i> Upload your podcast to Google Drive</li>
+                                <li><i class="fas fa-check-circle"></i> Right-click the file and select "Get link"</li>
+                                <li><i class="fas fa-check-circle"></i> Set sharing to "Anyone with the link"</li>
+                                <li><i class="fas fa-check-circle"></i> Paste the shareable link above</li>
+                                <li><i class="fas fa-check-circle"></i> Click "Add Podcast" to add it to your podcast list</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </div>
-     -->
-    <!-- ===== CONTACT PAGE ===== -->
+    
+     <!-- ===== CONTACT PAGE ===== -->
     <div id="contact-page" class="page">
         <section id="contact">
             <div class="container">
@@ -1969,11 +2004,9 @@
             <div class="social-links">
                 <a href="https://github.com/Akubrecah"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/powel-mwenesi-123456789/"><i class="fab fa-linkedin-in"></i></a>
-                <!-- <a href="https://twitter.com"><i class="fab fa-twitter"></i></a> -->
                 <a href="https://instagram.com/darypowel"><i class="fab fa-instagram"></i></a>
             </div>
             <p>&copy; 2025 Powel Mwenesi. All rights reserved.</p>
-            <!-- <p>Designed with ❤️ and JavaScript</p> -->
         </div>
     </footer>
     
@@ -2077,20 +2110,141 @@
         // Set home as active initially
         document.querySelector('.nav-links label[for="home-radio"]').classList.add('active');
         
-        // Podcast player functionality
-        const playButtons = document.querySelectorAll('.play-btn');
-        
-        playButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const icon = this.querySelector('i');
-                if (icon.classList.contains('fa-play')) {
-                    icon.classList.remove('fa-play');
-                    icon.classList.add('fa-pause');
-                } else {
-                    icon.classList.remove('fa-pause');
-                    icon.classList.add('fa-play');
-                }
+        // Tab functionality
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                tabs.forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Hide all tab contents
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Show the selected tab content
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(`${tabId}-content`).classList.add('active');
             });
+        });
+        
+        // Podcast management
+        const podcasts = {
+            assets: [],
+            gdrive: []
+        };
+        
+        // Function to create podcast card
+        function createPodcastCard(podcast, source) {
+            return `
+                <div class="podcast-card" data-source="${source}" data-url="${podcast.url}">
+                    <div class="podcast-image">
+                        <i class="fas fa-podcast"></i>
+                    </div>
+                    <div class="podcast-content">
+                        <h3>${podcast.title}</h3>
+                        <div class="podcast-meta">
+                            <span>${podcast.date}</span>
+                            <span>${podcast.duration}</span>
+                        </div>
+                        <p>${podcast.description}</p>
+                        
+                        <div class="podcast-player">
+                            <audio controls>
+                                <source src="${podcast.url}" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Add podcast from assets
+        document.getElementById('add-assets-podcast').addEventListener('click', () => {
+            const pathInput = document.getElementById('assets-path');
+            const path = pathInput.value.trim();
+            const infoElement = document.getElementById('assets-info');
+            
+            if (!path) {
+                infoElement.innerHTML = '<p style="color: #ff6b6b;">Please enter a file path</p>';
+                return;
+            }
+            
+            // Create a podcast object
+            const podcast = {
+                title: `Podcast from Assets: ${path.split('/').pop()}`,
+                date: new Date().toLocaleDateString(),
+                duration: 'N/A',
+                description: 'Added from your assets folder',
+                url: path
+            };
+            
+            // Add to podcasts array
+            podcasts.assets.push(podcast);
+            
+            // Create and add the card
+            const cardHtml = createPodcastCard(podcast, 'assets');
+            document.querySelector('#assets-content .podcast-grid').innerHTML += cardHtml;
+            
+            // Success message
+            infoElement.innerHTML = `<p style="color: #47a248;">Podcast added successfully!</p>`;
+            
+            // Clear input
+            pathInput.value = '';
+        });
+        
+        // Add podcast from Google Drive
+        document.getElementById('add-gdrive-podcast').addEventListener('click', () => {
+            const linkInput = document.getElementById('gdrive-link');
+            const link = linkInput.value.trim();
+            const infoElement = document.getElementById('gdrive-info');
+            
+            if (!link) {
+                infoElement.innerHTML = '<p style="color: #ff6b6b;">Please enter a Google Drive link</p>';
+                return;
+            }
+            
+            // Extract file ID from Google Drive link
+            let fileId = '';
+            if (link.includes('/file/d/')) {
+                fileId = link.split('/file/d/')[1].split('/')[0];
+            } else if (link.includes('id=')) {
+                fileId = link.split('id=')[1].split('&')[0];
+            }
+            
+            if (!fileId) {
+                infoElement.innerHTML = '<p style="color: #ff6b6b;">Invalid Google Drive link format</p>';
+                return;
+            }
+            
+            // Create direct download link
+            const directLink = `https://drive.google.com/uc?export=download&id=${fileId}`;
+            
+            // Create a podcast object
+            const podcast = {
+                title: `Google Drive Podcast`,
+                date: new Date().toLocaleDateString(),
+                duration: 'N/A',
+                description: 'Added from Google Drive',
+                url: directLink
+            };
+            
+            // Add to podcasts array
+            podcasts.gdrive.push(podcast);
+            
+            // Create and add the card
+            const cardHtml = createPodcastCard(podcast, 'gdrive');
+            document.querySelector('#gdrive-content .podcast-grid').innerHTML += cardHtml;
+            
+            // Success message
+            infoElement.innerHTML = `<p style="color: #47a248;">Podcast added successfully! Direct link: ${directLink}</p>`;
+            
+            // Clear input
+            linkInput.value = '';
         });
     </script>
 </body>
