@@ -14,6 +14,9 @@ A modern, responsive portfolio website built with HTML, CSS. Showcase your skill
 ## Live Demo
 
 (https://akubrecah.github.io/Portfolio-Website/)
+## Live Demo
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit-blue?style=for-the-badge)](https://akubrecah.github.io/Portfolio-Website/)
 
 ## Technologies Used
 
