@@ -12,14 +12,12 @@ A modern, responsive portfolio website built with HTML, CSS. Showcase your skill
 - **Dark Mode**: Eye-friendly dark color scheme
 
 ## Live Demo
-
 (https://akubrecah.github.io/Portfolio-Website/)
 ## Live Demo
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit-blue?style=for-the-badge)](https://akubrecah.github.io/Portfolio-Website/)
 
 ## Technologies Used
-
 - **HTML5**: Semantic markup for content structure
 - **CSS3**: Flexbox, Grid, Variables, and animations
 - **Font Awesome**: Icon library
