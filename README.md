@@ -1,9 +1,7 @@
 # Powel Portfolio - README
-
 A modern, responsive portfolio website built with HTML, CSS. Showcase your skills, projects, and professional experience with this elegant single-page design.
 
 ## Features
-
 - **Responsive Design**: Works seamlessly on all devices
 - **Modern UI**: Clean, professional aesthetic with smooth animations
 - **Seven Sections**: Home, About, Skills, Education, Interests, Projects, Contact
@@ -24,14 +22,11 @@ A modern, responsive portfolio website built with HTML, CSS. Showcase your skill
 - **Google Fonts**: Typography
 
 ## Getting Started
-
 To use this portfolio template:
-
 1. Clone the repository or download the HTML file:
 ```bash
 git clone https://github.com/Akubrecah/portfolio-website.git
 ```
-
 2. Open `index.html` in your browser
 
 3. Customize the content in the HTML file:
