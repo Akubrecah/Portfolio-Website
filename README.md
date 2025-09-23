@@ -79,4 +79,4 @@ Phone: +254 719 299 900 / +254 791 497 858
 
 ---
 
-**Created by Powel Mwenesi**
+**Created by Powel**
